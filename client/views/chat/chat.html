@@ -1,5 +1,10 @@
 <template name="chat">
   {{> message}}
+
+  {{#each messages}}
+    {{> message}}
+  {{/each}}
+
   {{> chatbox}}
 </template>
 
