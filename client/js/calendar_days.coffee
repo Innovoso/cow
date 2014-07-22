@@ -1,33 +1,40 @@
+monthAndYear = (date) -> [date.getMonth(), date.getFullYear()]
+
+beginningOfDay = (date = new Date()) ->
+  new Date(date.getFullYear(), date.getMonth(), date.getDate())
+
+getStartOfMonth = (date) ->
+  [month, year] = monthAndYear(date)
+  new Date(year, month, 1, 0, 0, 0, 0)
+
+getEndOfMonth = (date) ->
+  [month, year] = monthAndYear(date)
+  new Date(year, month + 1, 0, 0, 0, 0)
+
+deltaDays = (date, deltaDays) ->
+  newDate = beginningOfDay(date)
+  newDate.setDate(newDate.getDate() + deltaDays)
+  newDate
+
+console.log deltaDays(new Date(), 0)
+
+getCalendarArrayForMonthWithDate = (date) ->
+
+  startOfMonth = getStartOfMonth(date)
+  daysFromPreviousMonth = startOfMonth.getDay()
+
+  startDate = deltaDays(getStartOfMonth(date), -daysFromPreviousMonth)
+
+  dateArray = []
+
+  for i in [0...42]
+    dateArray.push deltaDays(startDate, i)
+
+  return dateArray
+
 Template.calendarDays.helpers
 
-  date: ->
-    # initialize
-    date = new Date(2014, 1, 1)
-    y = date.getFullYear()
-    m = date.getMonth()
-    endOfMonth = new Date(y,m + 1,0)
-    startOfMonth = new Date(y,m,1)
-    dateArray = []
-
-    daysFromPreviousMonth = startOfMonth.getDay()
-    numberOfDaysInPreviousMonth = new Date(y, m, 0)
-
-    # Push days from previous months
-    for days in [(numberOfDaysInPreviousMonth.getDate() - (daysFromPreviousMonth - 1))..numberOfDaysInPreviousMonth.getDate()]
-      dateArray.push days
-
-    # push days in current month
-    for days in [1..endOfMonth.getDate()]
-      dateArray.push days
-
-    # Push days of next month
-    daysFromNextMonth = 42 - dateArray.length
-    if daysFromNextMonth != 0
-      for days in [1..daysFromNextMonth]
-        dateArray.push days
-
-    # return Array
-    return dateArray
+  date: (date = new Date()) -> getCalendarArrayForMonthWithDate(date)
 
 
 
