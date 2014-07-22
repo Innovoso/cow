@@ -16,8 +16,6 @@ deltaDays = (date, deltaDays) ->
   newDate.setDate(newDate.getDate() + deltaDays)
   newDate
 
-console.log deltaDays(new Date(), 0)
-
 getCalendarArrayForMonthWithDate = (date) ->
 
   startOfMonth = getStartOfMonth(date)
@@ -32,10 +30,22 @@ getCalendarArrayForMonthWithDate = (date) ->
 
   return dateArray
 
+DateFormats = ->
+  short: "DD MMMM - YYYY"
+
+
+
 Template.calendarDays.helpers
 
   date: (date = new Date()) -> getCalendarArrayForMonthWithDate(date)
 
+
+UI.registerHelper "formatDate", (datetime, format) ->
+  # if (moment)
+    f = DateFormats[format]
+    return moment(datetime).format(f)
+  # else
+  #   return datetime
 
 
 
