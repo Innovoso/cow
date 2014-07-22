@@ -1,5 +1,10 @@
-<template name="chatView">
-  <h1>Chat View</h1>
-  It's raining cows
-  <input type="button" value="Click" />
+<template name="chat">
+  {{> message}}
+
+  {{#each messages}}
+    {{> message}}
+  {{/each}}
+
+  {{> chatbox}}
 </template>
+
