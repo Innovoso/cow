@@ -5,11 +5,11 @@ beginningOfDay = (date = new Date()) ->
 
 getStartOfMonth = (date) ->
   [month, year] = monthAndYear(date)
-  new Date(year, month, 1, 0, 0, 0, 0)
+  new Date(year, month, 1)
 
 getEndOfMonth = (date) ->
   [month, year] = monthAndYear(date)
-  new Date(year, month + 1, 0, 0, 0, 0)
+  new Date(year, month + 1)
 
 deltaDays = (date, deltaDays) ->
   newDate = beginningOfDay(date)
