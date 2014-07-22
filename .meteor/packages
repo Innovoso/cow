@@ -6,6 +6,9 @@
 standard-app-packages
 autopublish
 insecure
+coffeescript
 iron-router
 foundation
 less
+accounts-password
+accounts-ui-unstyled
