@@ -2,10 +2,7 @@ buildMessage = (name, content) ->
   { name: name, message: content, time: Date.now() }
 
 Template.chat.helpers
-  messages: ->
-    messages = Messages.find({}, { sort: { time: 1 }})
-    console.log messages.fetch()
-    messages
+  messages: -> Messages.find({}, { sort: { time: 1 }})
 
 Template.chat.events
 
