@@ -29,6 +29,10 @@ body {
   position: relative;
   background: white;
 
+  &:last-of-type {
+    margin-bottom: 60px;
+  }
+
   .user {
     color: @red;
     font-family: 'Exo 2', sans-serif;
@@ -53,7 +57,7 @@ body {
 
 .chatbox {
   padding: 0 5px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
