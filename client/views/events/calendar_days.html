@@ -1,5 +1,7 @@
-<template name="calendarDays">
-  {{#each date}}
-    <div class="dates">{{formatDate this "short"}}</div>
-  {{/each}}
+<template name="dateCells">
+  <div class="month">
+    {{#each datesArray}}
+      <div class="dates">{{formatCalendarCellDate this}}</div>
+    {{/each}}
+  </div>
 </template>
