@@ -1,0 +1,154 @@
+@import url(http://fonts.googleapis.com/css?family=Exo+2:400,500,600,700,800);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
+
+@red: #da3765;
+@lightRed: #f3b4cb;
+@darkRed: #a92b4f;
+@teal: #44c0b4;
+@gray: #c0c0c0;
+
+@gray-light: #F9F9F9;
+@blue: #42CBEA;
+@blue-dark: #3194AA;
+@green: #A3D658;
+@green-light: #B5DF77;
+@green-extra-light: #E3FDBB;
+@green-dark: #74B973;
+@green-shadow: #68AE00;
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: @blue;
+}
+
+.message {
+  border: 1px solid @gray;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  background: white;
+
+  &:last-of-type {
+    margin-bottom: 60px;
+  }
+
+  .user {
+    color: @red;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    font-size: 0.8em;
+    border-bottom: 1px solid @gray;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  .content {
+    font-size: 0.9em;
+  }
+
+  .timestamp {
+    font-size: 0.7em;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+  }
+}
+
+.chatbox {
+  padding: 0 5px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+  border-top: 1px solid #ddd;
+
+  form {
+    margin: 0;
+  }
+
+  input[type=text] {
+    margin: 5px 0 5px 5px;
+    display: inline;
+    width: 80%;
+    border-radius: 5px;
+  }
+
+  input[type=submit] {
+    padding: 4px;
+    margin: 0;
+    margin-left: 5px;
+    border: 0;
+    border-radius: 20px;
+    font-size: 0.7em;
+    width: 45px;
+    height: 30px;
+    background: @green;
+    color: white;
+    font-weight: 600;
+    font-family: 'Exo 2', sans-serif;
+  }
+}
+
+.top-bar {
+  background: @blue-dark;
+  border-bottom: 1px solid @blue-dark;
+}
+
+// Login stuff
+
+.title {
+
+  text-align: center;
+  margin-bottom: 30px;
+
+  h1 {
+    color: white;
+    font-weight: 600;
+    font-size: 2.5em;
+    font-family: 'Exo 2', sans-serif;
+  }
+}
+
+.loginForm {
+  margin: 60px 30px;
+
+  label {
+    color: white;
+  }
+
+  input {
+    border-radius: 5px;
+    border: 0;
+  }
+}
+
+#login-buttons-password {
+  background: @green;
+  box-shadow: 0 5px 0 0 @green-shadow;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 600;
+  color: white;
+
+  margin: 50px auto;
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.additional-link-container {
+  font-size: 0.8em;
+  display: inline;
+  margin: 0 15px;
+}
+
+// ==========
+// login hack
+// ==========
+
+#login-sign-in-link, .login-close-text {
+  display: none;
+}
