@@ -1,0 +1,68 @@
+@import url("fonts.lessimport");
+@import url("colors.lessimport");
+
+.message {
+  border: 1px solid @gray;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  background: white;
+
+  .user {
+    color: @red;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    font-size: 0.8em;
+    border-bottom: 1px solid @gray;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  .content {
+    font-size: 0.9em;
+  }
+
+  .timestamp {
+    font-size: 0.7em;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+  }
+}
+
+.chatbox {
+  padding: 0 5px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+  border-top: 1px solid #ddd;
+
+  form {
+    margin: 0;
+  }
+
+  input[type=text] {
+    margin: 5px 0 5px 5px;
+    display: inline;
+    width: 80%;
+    border-radius: 5px;
+  }
+
+  input[type=submit] {
+    padding: 4px;
+    margin: 0;
+    margin-left: 5px;
+    border: 0;
+    border-radius: 20px;
+    font-size: 0.7em;
+    width: 45px;
+    height: 30px;
+    background: @green;
+    color: white;
+    font-weight: 600;
+    font-family: 'Exo 2', sans-serif;
+  }
+}
