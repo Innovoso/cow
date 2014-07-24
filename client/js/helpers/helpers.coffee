@@ -8,9 +8,13 @@ Handlebars.registerHelper 'messageTime', (timestamp) ->
     m.fromNow()
 
 
-UI.registerHelper "formatCalendarCellDate", (datetime) ->
+UI.registerHelper "formatCalendarCellDate", (datetime) =>
 
   moment(datetime).format('D')
+
+
+
+
 
 
 

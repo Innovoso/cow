@@ -1,7 +1,9 @@
 <template name="dateCells">
   <div class="month">
     {{#each datesArray}}
-      <div class="dates">{{formatCalendarCellDate this}}</div>
+      <div class="dateCell" id={{id}}>{{formatCalendarCellDate this}}</div>
     {{/each}}
   </div>
 </template>
+
+
