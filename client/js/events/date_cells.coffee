@@ -8,11 +8,13 @@ Template.dateCells.helpers
 
 Template.dateCells.rendered = ->
   currentDay = "c" + moment(@currentDate).format("MDYY")
-  $('#' + currentDay).addClass('selectedDate')
 
+  if $('#' + currentDay)
+    $('#' + currentDay).addClass('currentDate')
 
 Template.dateCells.events
   'click .dateCell': (e) ->
-    $('.dateCell').removeClass('selectedDate')
-    $(e.target).addClass('selectedDate')
+    if e.target.id != "c" + moment(@currentDate).format("MDYY")
+      $('.dateCell').removeClass('selectedDate')
+      $(e.target).addClass('selectedDate')
 
