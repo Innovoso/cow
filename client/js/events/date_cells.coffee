@@ -1,3 +1,7 @@
+Template.events_nav.helpers
+  title: =>
+    moment(@calendarDate).format("MMM YY")
+
 Template.dateCells.helpers
 
   datesArray: ->
