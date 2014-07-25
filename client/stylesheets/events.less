@@ -1,0 +1,95 @@
+@import url("fonts.lessimport");
+@import url("colors.lessimport");
+
+.calendar {
+  margin-top: 45px;
+}
+
+.eventsList {
+
+  padding-top: 10px;
+  background: white;
+  height: 100%;
+
+  .event {
+    width: 100%;
+    background: white;
+    border-top: 1px solid @gray;
+    padding: 5px;
+    height: 60px;
+
+    &:last-of-type {
+      border-bottom: 1px solid @gray;
+    }
+
+    .event-name {
+      font-size: 0.9em;
+      font-weight: 600;
+      padding-top: 6px;
+      padding-bottom: 3px;
+    }
+
+    .location-details {
+      font-size: 0.7em;
+    }
+  }
+
+  .small-labels {
+    color: gray;
+    font-size: 0.6em;
+    font-weight: 400;
+  }
+}
+
+.dayBar {
+
+  margin: 0;
+  border: 0;
+  width: 100%;
+
+  .dayLabel {
+    float: left;
+    background: white;
+    text-align: center;
+    padding: 10px 0 7px 0;
+    color: @gray;
+    font-size: 0.5em;
+    width: 14.2857143%;
+  }
+}
+
+.dates {
+  font-size: 12px;
+  width: 14.2857143%;
+  border: 0;
+  float: left;
+  text-align: center;
+  padding: 8px;
+}
+
+.dateCells {
+  margin-left: 0px;
+  background-color: white;
+  width: 100%;
+  background-color: white;
+  overflow: auto;
+}
+
+.dateCell {
+  font-size: 12px;
+  width: 14.285714286%;
+  float: left;
+  text-align: center;
+  padding: 8px;
+}
+
+.selectedDate {
+  font-weight: 700;
+  color: white;
+  background: url('img/selectDate.svg') center no-repeat;
+}
+
+.currentDate {
+  background: url('img/currentDate.svg') center no-repeat;
+  background-size: 30px;
+}

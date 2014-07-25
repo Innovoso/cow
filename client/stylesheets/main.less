@@ -1,6 +1,7 @@
 @import url("fonts.lessimport");
 @import url("colors.lessimport");
 
+
 body {
   font-family: 'Open Sans', sans-serif;
   background: @blue;
@@ -34,6 +35,27 @@ nav {
   .right {
     text-align: right;
   }
+}
+
+.timestamp {
+  font-size: 0.7em;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.chatbox {
+  padding: 0 5px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+  border-top: 1px solid #ddd;
+
+  form {
+    margin: 0;
+  }
 
   button {
     margin-top: -10px;
@@ -45,42 +67,6 @@ nav {
   }
 }
 
-.eventsList {
-
-  padding-top: 10px;
-  background: white;
-  height: 100%;
-
-  .event {
-
-    width: 100%;
-    background: white;
-    border-top: 1px solid @gray;
-    padding: 5px;
-    height: 60px;
-
-    &:last-of-type {
-      border-bottom: 1px solid @gray;
-    }
-
-    .event-name {
-      font-size: 0.9em;
-      font-weight: 600;
-      padding-top: 6px;
-      padding-bottom: 3px;
-    }
-
-    .location-details {
-      font-size: 0.7em;
-    }
-  }
-
-  .small-labels {
-    color: gray;
-    font-size: 0.6em;
-    font-weight: 400;
-  }
-}
 
 // Login stuff
 
@@ -143,35 +129,4 @@ nav {
 // Events View Styles
 // ===========
 
-.dayBar {
 
-  margin: 0px;
-  border: 0;
-  width: 100%;
-
-  td {
-    color: @gray;
-    font-size: 0.5em;
-    padding-left: 14px;
-  }
-
-}
-
-.dateCells {
-  background-color: white;
-  overflow: auto;
-  width: 100%;
-}
-
-.dates {
-  font-size: 12px;
-  width: 14.2857143%;
-  border: 0;
-  float: left;
-  text-align: center;
-  padding: 8px;
-}
-
-.selectedDay {
-  background-color: red;
-}
