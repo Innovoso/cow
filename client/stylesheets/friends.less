@@ -1,0 +1,61 @@
+@import url("fonts.lessimport");
+@import url("colors.lessimport");
+
+@table-cell-border: 1px solid @gray;
+
+.friends-search {
+
+  text-align: center;
+  background: white;
+
+  .columns {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  form {
+    padding: 0;
+    margin: 0;
+  }
+
+  input[type=search] {
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+}
+
+.friend {
+
+  background: white;
+  border-top: @table-cell-border;
+  padding: 10px 0;
+
+  &:last-of-type {
+    border-bottom: @table-cell-border;
+  }
+
+  .avatar {
+    padding-right: 0;
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+  }
+
+  .details {
+    padding-left: 5px;
+  }
+
+  .name {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .status {
+    font-size: 0.7em;
+    color: gray;
+  }
+}

@@ -1,3 +1,23 @@
 <template name="friends">
   {{> friends_nav }}
+
+  <div class="friends-search row">
+    <div class="small-2 columns">
+      (f)
+    </div>
+    <div class="small-8 columns">
+      <form action="#">
+        <input type="search" placeholder="Type contact name">
+      </form>
+    </div>
+    <div class="small-2 columns">
+      (+)
+    </div>
+  </div>
+
+  <div class="friends">
+    {{#each friends }}
+      {{> friend }}
+    {{/each }}
+  </div>
 </template>
