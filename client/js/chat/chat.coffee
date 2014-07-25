@@ -18,3 +18,11 @@ Template.chat.events
       message = buildMessage(email, content)
 
       Messages.insert(message)
+
+Template.message.rendered = ->
+
+  console.log "Message rendered"
+
+  $('html, body').delay(200).animate({
+    scrollTop: $('.message:last-of-type').offset().top
+  }, 2000)

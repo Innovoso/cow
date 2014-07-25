@@ -6,6 +6,32 @@ body {
   background: @blue;
 }
 
+nav {
+  height: 45px;
+  width: 100%;
+  background: white;
+  background: @blue-dark;
+  border-bottom: 1px solid @blue-dark;
+  text-align: center;
+  color: white;
+
+  .columns {
+    padding-top: 13px;
+  }
+
+  .title {
+    font-weight: 700;
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  .right {
+    text-align: right;
+  }
+}
+
 .eventsList {
 
   padding-top: 10px;
@@ -41,11 +67,6 @@ body {
     font-size: 0.6em;
     font-weight: 400;
   }
-}
-
-.top-bar {
-  background: @blue-dark;
-  border-bottom: 1px solid @blue-dark;
 }
 
 // Login stuff
