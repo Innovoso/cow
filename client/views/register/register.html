@@ -1,0 +1,16 @@
+<template name="register">
+  <div id="register-view" class="accounts">
+    <h1>Register</h1>
+    <form action="#" id="register">
+      <div>
+        <input type="email" id="account-email" placeholder="email" />
+        <input type="password" id="account-password" placeholder="password" />
+        <input type="password" id="password-confirmation" placeholder="confirm password">
+        <input type="submit" id="create-account" value="Create an Account" />
+      </div>
+    </form>
+    <div class="link">
+      <a href="{{pathFor 'login' }}">Back</a>
+    </div>
+  </div>
+</template>

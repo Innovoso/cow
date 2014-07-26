@@ -6,3 +6,6 @@ Router.map ->
   @route 'chat', { }
   @route 'friends'
   @route 'event', { path: '/events' }
+
+  @route 'register'
+  @route 'reset_password'
