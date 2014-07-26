@@ -4,7 +4,8 @@
     "basePackages": {
       "iron-router": {},
       "foundation": {},
-      "font-awesome-4-less": {}
+      "font-awesome-4-less": {},
+      "pickadate": {}
     },
     "packages": {
       "iron-router": {
@@ -21,6 +22,11 @@
         "git": "https://github.com/svub/fontawesome4-less.git",
         "tag": "v4.4.0",
         "commit": "250d2336a217c18eb70e9d074784a7db3ca38472"
+      },
+      "pickadate": {
+        "git": "https://github.com/mervas/meteor-pickadate.git",
+        "tag": "v3.3.1",
+        "commit": "830c2774a1e58af03c143e7f76c9a26b79aa48a3"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

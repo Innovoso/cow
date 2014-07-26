@@ -1,2 +1,5 @@
 Template.createEvent.rendered = ->
-  # $("#datepicker").datepicker()
+  $("#startDay").pickadate()
+  $("#startTime").pickatime()
+  $("#endDay").pickadate()
+  $("#endTime").pickatime()
