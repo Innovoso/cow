@@ -5,4 +5,5 @@ Router.map ->
   @route 'login', { path: '/' }
   @route 'chat', { }
   @route 'friends'
-  @route 'event', { path: '/events' }
+  @route 'eventsCalendar'
+  @route 'createEvent'
