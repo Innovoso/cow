@@ -1,4 +1,4 @@
-Template.events_nav.helpers
+Template.eventsNav.helpers
   title: =>
     moment(@calendarDate).format("MMM YY")
 
@@ -22,3 +22,10 @@ Template.dateCells.events
       $('.dateCell').removeClass('selectedDate')
       $(e.target).addClass('selectedDate')
 
+Template.eventsNav.events
+  'click .plus-button': (e) ->
+    Router.go 'createEvent'
+
+Template.createEvent.events
+  'click #invitees': (e) ->
+    Router.go 'friends'

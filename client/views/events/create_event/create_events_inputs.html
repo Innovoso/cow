@@ -1,41 +1,22 @@
 <template name="createEventsInputs">
-  <div class="createEventsInputs">
-    <div class="createEventTitleLocation">
-      <form>
+    <div class="createEventsInputs">
+      <div class="createEventTitleLocation">
         <input type="text" name="title" placeholder="Title">
-      </form>
-      <form>
         <input type="text" name="location" placeholder="Location">
-      </form>
-    </div>
-    <div class="createStart">
-      <form>
+      </div>
+      <div class="createStart">
         <input type="text" name="startDay" placeholder="Start Day" id="startDay">
-      </form>
-      <form>
         <input type="text" name="startTime" placeholder="Start Time" id="startTime">
-      </form>
-    </div>
-    <div class="createEnd">
-      <form>
-        <input type="text" name="endDay" placeholder="End Day" id="endDay">
-      </form>
-      <form>
+      </div>
+      <div class="createEnd">
+        <input type="text" name="endDay" placeholder="Enter if End Day different from start day" id="endDay">
         <input type="text" name="endTime" placeholder="End Time" id="endTime">
-      </form>
+      </div>
+      <div class="invitees">
+        <input type="text" name="invitees" placeholder="Invite your friends!" id="invitees">
+      </div>
+      <div class="notes">
+        <input type="text" name="notes" placeholder="Notes" id="notes">
+      </div>
     </div>
-    <div class="invitees">
-      <form>
-        <div>
-          <input type="text" name="invitees" placeholder="Invite your friends!" id="invitees">
-        </div>
-      </form>
-    </div>
-    <div class="notes">
-      <textarea type="text" name="notes" placeholder="Notes" id="notes"></textarea>
-    </div>
-
-
-
-  </div>
 </template>
