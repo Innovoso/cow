@@ -4,6 +4,12 @@ Template.createEvent.rendered = ->
   $("#endDay").pickadate()
   $("#endTime").pickatime()
 
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+    Session.set('isMobile', true)
+
+  else
+    Session.set('isMobile', false)
+
 
 Template.createEvent.events 'submit form#createEvent' : (event, template) ->
   event.preventDefault()
@@ -42,3 +48,41 @@ Template.createEvent.events 'submit form#createEvent' : (event, template) ->
 Template.createEventNav.events
   'click .back-button': (e) ->
     Router.go 'eventsCalendar'
+
+
+Template.createEvent.isMobile = ->
+  return Session.get('isMobile')
+
+
+
+
+# browser = {
+#   Android: -> {
+#       return navigator.userAgent.match(/Android/i)
+#     },
+
+#   BlackBerry: -> {
+#       return navigator.userAgent.match(/BlackBerry/i)
+#     },
+#   iOS: -> {
+#       return navigator.userAgent.match(/iPhone|iPad|iPod/i)
+#     },
+#   Opera: -> {
+#       return navigator.userAgent.match(/Opera Mini/i)
+#     },
+#   Windows: -> {
+#       return navigator.userAgent.match(/IEMobile/i)
+#     },
+#   any: -> {
+#       return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+#   }
+# };
+
+
+# checkIfMobileBrowser = ->
+
+#   if( isMobile.any() ) alert('Mobile');
+
+
+
+
