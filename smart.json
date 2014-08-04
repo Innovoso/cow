@@ -2,6 +2,7 @@
   "packages": {
     "iron-router": {},
     "foundation": {},
-    "font-awesome-4-less": {}
+    "font-awesome-4-less": {},
+    "jquery-easing": {}
   }
 }
