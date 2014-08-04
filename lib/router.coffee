@@ -3,7 +3,8 @@ Router.configure
 
 Router.map ->
   @route 'login', { path: '/' }
-  @route 'chat'
+  @route 'chat',
+    waitOn: -> Meteor.subscribe 'messages'
   @route 'friends'
   @route 'event', { path: '/events' }
 
