@@ -19,5 +19,5 @@ Template.login.events
         console.log "Logged in as:"
         console.log Meteor.user()
 
-        Router.go('event')
+        Router.go('chat')
     false
