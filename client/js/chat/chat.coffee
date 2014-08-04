@@ -5,8 +5,17 @@ scrollTop = (element) ->
     scrollTop: element.offset().top
   }, '50000', 'easeInOutCubic')
 
-buildMessage = (name, content) ->
-  { name: name, message: content, time: Date.now() }
+getUserName = ->
+  user = Meteor.user()
+  user.name || user.emails[0].address
+
+getAndClearInput = (input_field) ->
+  message = input_field.val()
+  input_field.val('')
+  message
+
+createMessage = (userId, name, content) ->
+  { userId: userId, name: name, message: content, time: Date.now() }
 
 Template.chat.helpers
   messages: -> Messages.find({}, { sort: { time: 1 }})
@@ -16,14 +25,17 @@ Template.chat.events
   'submit form': (e) ->
     e.preventDefault()
 
-    input = $(e.target).find('[name=message]')
-    content = input.val()
-    input.val('')
-
-    email = Meteor.user().emails[0].address
-    message = buildMessage(email, content)
+    content = getAndClearInput($(e.target).find('[name=message]'))
+    username = getUserName()
+    userId = Meteor.userId()
+    message = createMessage(userId, username, content)
 
     Messages.insert(message)
+    false
+
+Template.message.helpers
+  me: (message) ->
+    if Meteor.userId() == message.userId then 'me'
 
 Template.message.rendered = ->
   messagesRendered += 1
