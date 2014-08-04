@@ -21,21 +21,17 @@ Template.chat.helpers
   messages: -> Messages.find({}, { sort: { time: 1 }})
 
 Template.chat.events
-
   'submit form': (e) ->
     e.preventDefault()
-
     content = getAndClearInput($(e.target).find('[name=message]'))
     username = getUserName()
     userId = Meteor.userId()
     message = createMessage(userId, username, content)
-
     Messages.insert(message)
     false
 
 Template.message.helpers
-  me: (message) ->
-    if Meteor.userId() == message.userId then 'me'
+  me: (message) -> if Meteor.userId() == message.userId then 'me'
 
 Template.message.rendered = ->
   messagesRendered += 1
