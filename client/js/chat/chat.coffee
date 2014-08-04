@@ -1,3 +1,10 @@
+@messagesRendered = 0
+
+scrollTop = (element) ->
+  $('html, body').animate({
+    scrollTop: element.offset().top
+  }, '50000', 'easeInOutCubic')
+
 buildMessage = (name, content) ->
   { name: name, message: content, time: Date.now() }
 
@@ -9,20 +16,16 @@ Template.chat.events
   'submit form': (e) ->
     e.preventDefault()
 
-    if Meteor.user()
-      input = $(e.target).find('[name=message]')
-      content = input.val()
-      input.val('')
+    input = $(e.target).find('[name=message]')
+    content = input.val()
+    input.val('')
 
-      email = Meteor.user().emails[0].address
-      message = buildMessage(email, content)
+    email = Meteor.user().emails[0].address
+    message = buildMessage(email, content)
 
-      Messages.insert(message)
+    Messages.insert(message)
 
 Template.message.rendered = ->
-
-  console.log "Message rendered"
-
-  $('html, body').delay(200).animate({
-    scrollTop: $('.message:last-of-type').offset().top
-  }, 2000)
+  messagesRendered += 1
+  if messagesRendered == Messages.find().count()
+    scrollTop($(@lastNode))

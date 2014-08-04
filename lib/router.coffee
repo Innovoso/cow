@@ -3,7 +3,7 @@ Router.configure
 
 Router.map ->
   @route 'login', { path: '/' }
-  @route 'chat', { }
+  @route 'chat'
   @route 'friends'
   @route 'event', { path: '/events' }
 
