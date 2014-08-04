@@ -1,6 +1,9 @@
+isValidPassword = (password) ->
+  password.length >= 4
+
 Template.register.events
 
-  'submit #register-form': (e, t) ->
+  'submit #register': (e, t) ->
     e.preventDefault()
 
     email = t.find('#account-email').value
