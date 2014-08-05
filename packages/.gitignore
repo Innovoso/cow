@@ -6,3 +6,6 @@
 /iron-layout
 /iron-core
 /iron-dynamic-template
+/iron-transitioner
+/velocityjs
+/animation-helper

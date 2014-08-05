@@ -5,7 +5,9 @@
       "iron-router": {},
       "foundation": {},
       "font-awesome-4-less": {},
-      "jquery-easing": {}
+      "jquery-easing": {},
+      "velocityjs": {},
+      "animation-helper": {}
     },
     "packages": {
       "iron-router": {
@@ -27,6 +29,16 @@
         "git": "https://github.com/kenyee/meteor-jquery-easing.git",
         "tag": "v1.3.0",
         "commit": "556cf106f23692d78e5c92aa8a3bc99cf24bbd49"
+      },
+      "velocityjs": {
+        "git": "https://github.com/Sewdn/meteor-velocityjs.git",
+        "tag": "v0.8.0",
+        "commit": "5e96099e2cf8f99dbc7ed61225e96b0ba833ff08"
+      },
+      "animation-helper": {
+        "git": "https://github.com/frozeman/meteor-animation-helper.git",
+        "tag": "v0.0.3",
+        "commit": "174b69145c30fa193f33abb2be43407c0338ff94"
       },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",

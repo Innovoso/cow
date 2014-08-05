@@ -3,6 +3,8 @@
     "iron-router": {},
     "foundation": {},
     "font-awesome-4-less": {},
-    "jquery-easing": {}
+    "jquery-easing": {},
+    "velocityjs": {},
+    "animation-helper": {}
   }
 }
