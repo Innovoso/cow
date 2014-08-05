@@ -1,14 +1,23 @@
 <template name="chatbox">
   <div class="chatbox">
-    <form>
-      <div class="row">
-        <div class="small-10 columns">
-          <input type="text" autocomplete="off" name="message">
-        </div>
-        <div class="small-2 columns">
-          <input type="submit" value="Send">
-        </div>
+    <div class="row">
+      <div class="small-12 columns">
+        {{> suggestions }}
       </div>
-    </form>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        <form>
+          <div class="row">
+            <div class="small-10 columns">
+              <input type="text" autocomplete="off" name="message" id="message">
+            </div>
+            <div class="small-2 columns">
+              <input type="submit" value="Send">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </template>
