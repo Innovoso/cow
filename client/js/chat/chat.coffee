@@ -36,4 +36,9 @@ Template.message.helpers
 Template.message.rendered = ->
   messagesRendered += 1
   if messagesRendered == Messages.find().count()
-    scrollTop($(@lastNode))
+    Meteor.defer ->
+      lastMessage = $('.message:last-of-type')
+      scrollTop(lastMessage)
+      lastMessage
+        .transition({ scale: 0.9, opacity: 1, duration: 0})
+        .transition({ scale: 1.0, opacity: 1 }, 300, 'ease')
