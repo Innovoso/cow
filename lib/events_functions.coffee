@@ -1,3 +1,6 @@
+@getSelectedDateIdForDate = (date) ->
+  "c" + moment(date).format("MDYY")
+
 @monthAndYear = (date) -> [date.getMonth(), date.getFullYear()]
 
 @beginningOfDay = (date = new Date()) ->

@@ -39,6 +39,11 @@ Template.dateCells.rendered = ->
 
 Template.dateCells.events
   'click .dateCell': (e) ->
+
+    date = getStartOfMonth(calendarDate)
+    dateId = getSelectedDateIdForDate(date)
+    $('#' + dateId).removeClass('selectedDate')
+
     $('.dateCell').removeClass('selectedDate')
     $(e.currentTarget).addClass('selectedDate')
     false
