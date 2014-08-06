@@ -7,15 +7,16 @@
 
 .eventsList {
 
-  padding-top: 10px;
+  padding-top: 0px;
   background: white;
   height: 100%;
+
 
   .event {
     width: 100%;
     background: white;
     border-top: 1px solid @gray;
-    padding: 5px;
+    padding: 1px;
     height: 60px;
 
     &:last-of-type {
@@ -31,6 +32,18 @@
 
     .location-details {
       font-size: 0.7em;
+    }
+
+    .event-time {
+      font-size: 0.1em;
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+      padding-top: 9px;
+      text-align: right;
+    }
+
+    .row {
+      margin-top: 10px;
     }
   }
 
@@ -80,6 +93,10 @@
   width: 14.285714286%;
   float: left;
   text-align: center;
+  // padding: 8px;
+}
+
+.dateCellData {
   padding: 8px;
 }
 
@@ -93,3 +110,27 @@
   background: url('img/currentDate.svg') center no-repeat;
   background-size: 30px;
 }
+
+.eventDots {
+  padding-bottom: 5px;
+}
+
+.oneEvent {
+  background: url('img/one_circle.svg') 20px 20px no-repeat;
+  background-size: 5px;
+}
+
+.twoEvents {
+  background: url('img/two_circles.svg') 18px 20px no-repeat;
+  background-size: 10px;
+}
+
+.threeEvents {
+  background: url('img/three_circles.svg') 14px 20px no-repeat;
+  background-size: 16px;
+}
+
+
+
+
+

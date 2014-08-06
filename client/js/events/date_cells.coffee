@@ -7,20 +7,41 @@ Template.dateCells.helpers
   datesArray: ->
     getCalendarArrayForMonthWithDate(calendarDate || new Date())
 
-  id: ->
+
+Template.dateCell.helpers
+
+  id_c: ->
     "c" + moment(this).format("MDYY")
 
-Template.dateCells.rendered = ->
-  currentDay = "c" + moment(@currentDate).format("MDYY")
+  id_d: ->
+    "d" + moment(this).format("MDYY")
 
+
+Template.dateCells.rendered = ->
+  # Add circle to current day
+  currentDay = "c" + moment(@currentDate).format("MDYY")
   if $('#' + currentDay)
     $('#' + currentDay).addClass('currentDate')
 
+  # Add dots to calendar representing number of events on day
+  Deps.autorun () ->
+    events = Events.find().fetch()
+    grouped = _.countBy(_.pluck(events, 'startDay'))
+
+    for own key, value of grouped
+      id = "d" + moment(key).format("MDYY")
+      if value == 1
+        $("##{id}").addClass('oneEvent')
+      else if value == 2
+        $("##{id}").addClass('twoEvents')
+      else if value == 3
+        $("##{id}").addClass('threeEvents')
+
 Template.dateCells.events
   'click .dateCell': (e) ->
-    if e.target.id != "c" + moment(@currentDate).format("MDYY")
-      $('.dateCell').removeClass('selectedDate')
-      $(e.target).addClass('selectedDate')
+    $('.dateCell').removeClass('selectedDate')
+    $(e.currentTarget).addClass('selectedDate')
+    false
 
 Template.eventsNav.events
   'click .plus-button': (e) ->

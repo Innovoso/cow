@@ -8,8 +8,9 @@
       {{> dateCells}}
     </div>
   </div>
-
-  {{> eventsList }}
+  {{#each event}}
+    {{> eventsList }}
+  {{/each}}
 </template>
 
 

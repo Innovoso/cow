@@ -10,7 +10,6 @@ Template.createEvent.rendered = ->
   else
     Session.set('isMobile', false)
 
-
 Template.createEvent.events 'submit form#createEvent' : (event, template) ->
   event.preventDefault()
 
@@ -26,20 +25,20 @@ Template.createEvent.events 'submit form#createEvent' : (event, template) ->
   # friends
   notes       = template.find "input[name=notes]"
 
-  console.log notes.value
+  startDateTime = new Date(startDay.value.concat(" ", startTime.value)).toUTCString()
+  endDateTime   = new Date(endDay.value.concat(" ", endTime.value)).toUTCString()
+  startDay      = new Date(startDay.value)
+
 
   data = {
+    title            : title.value,
+    location         : location.value,
 
-    title       : title.value,
-    location    : location.value,
+    startDay         : startDay,
+    startDateTime    : startDateTime,
+    endDateTime      : endDateTime,
 
-    startDay    : startDay.value,
-    startTime   : startTime.value,
-
-    endDay      : endDay.value,
-    endTime     : endTime.value,
-
-    notes       : notes.value
+    notes            : notes.value
   }
 
   Events.insert data, (err) -> { "Error in saving Event" }
@@ -49,39 +48,10 @@ Template.createEventNav.events
   'click .back-button': (e) ->
     Router.go 'eventsCalendar'
 
-
 Template.createEvent.isMobile = ->
   return Session.get('isMobile')
 
 
-
-
-# browser = {
-#   Android: -> {
-#       return navigator.userAgent.match(/Android/i)
-#     },
-
-#   BlackBerry: -> {
-#       return navigator.userAgent.match(/BlackBerry/i)
-#     },
-#   iOS: -> {
-#       return navigator.userAgent.match(/iPhone|iPad|iPod/i)
-#     },
-#   Opera: -> {
-#       return navigator.userAgent.match(/Opera Mini/i)
-#     },
-#   Windows: -> {
-#       return navigator.userAgent.match(/IEMobile/i)
-#     },
-#   any: -> {
-#       return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-#   }
-# };
-
-
-# checkIfMobileBrowser = ->
-
-#   if( isMobile.any() ) alert('Mobile');
 
 
 
