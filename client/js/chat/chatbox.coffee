@@ -1,6 +1,12 @@
-HashKey = 35
-
 Template.chatbox.events
-  'keypress #message': (e, t) ->
-    if e.which == HashKey
-      console.log '#'
+  'keyup #message': (e, t) ->
+
+    message = e.target.value
+    Session.set('smartFilter', message)
+    tags = Suggestions.tags(message)
+
+    if tags
+      $('#suggestions').show()
+    else
+      $('#suggestions').hide()
+      Session.set('smartFilter', '')

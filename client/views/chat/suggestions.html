@@ -1,18 +1,9 @@
 <template name="suggestions">
   <div id="suggestions">
     <div class="wrapper">
-      <div class="suggestion">#loc</div>
-      <div class="suggestion">#date</div>
-      <div class="suggestion">#loc</div>
-      <div class="suggestion">#date</div>
-      <div class="suggestion">#loc</div>
-      <div class="suggestion">#date</div>
-      <div class="suggestion">#loc</div>
-      <div class="suggestion">#date</div>
-      <div class="suggestion">#loc</div>
-      <div class="suggestion">#date</div>
-      <div class="suggestion">#loc</div>
-      <div class="suggestion">#date</div>
+      {{#each tags filter}}
+        <div class="suggestion">{{this}}</div>
+      {{/each}}
     </div>
   </div>
 </template>
