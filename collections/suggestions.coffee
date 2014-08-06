@@ -17,12 +17,12 @@ Suggestions.tags = (query) ->
     string.search(new RegExp(term)) == 0
 
   searchTagTerms = (array, term) ->
-    _.any(array, (string) -> searchString(string, term))
+    _.any array, (string) -> searchString(string, term)
 
   filterTagsByTerms = (tags, query) ->
-    _.filter(tags, (tag) -> searchTagTerms(tag.terms, query))
+    _.filter tags, (tag) -> searchTagTerms(tag.terms, query)
 
-  if findLastHashTerm(query)
+  if query = findLastHashTerm(query)
     tags = Suggestions.find().fetch()
     tags = filterTagsByTerms(tags, query)
     tags = _.pluck(tags, 'tag')
