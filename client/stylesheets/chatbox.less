@@ -15,7 +15,7 @@
   }
 
   input[type=text] {
-    margin: 0;
+    margin: 0 10px;
     display: inline;
   }
 
@@ -27,7 +27,15 @@
     color: @blue-dark;
     background: transparent;
     border: 0;
-    padding: 7px 7px 7px 9px;
+    padding: 7px 7px 7px 19px;
+  }
+
+  button {
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 1.4em;
+    background: transparent !important;
+    color: @blue-dark;
   }
 
   .row {
@@ -37,5 +45,9 @@
   .columns {
     margin: 0;
     padding: 0;
+  }
+
+  .columns.center {
+    text-align: center;
   }
 }
