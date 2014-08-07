@@ -19,4 +19,3 @@ UI.registerHelper "formatEventsListEndTime", (datetime) =>
 
 
 
-

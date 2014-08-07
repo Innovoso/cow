@@ -1,3 +1,4 @@
-@selectedDate = beginningOfDay(new Date())
-@calendarDate = @getStartOfMonth(new Date())
-@currentDate = beginningOfDay(new Date())
+Session.set 'selectedDate', @beginningOfDay(new Date())
+Session.set 'currentDate', @beginningOfDay(new Date())
+Session.set 'calendarDate', @getStartOfMonth(new Date())
+Session.set 'isMobile', true

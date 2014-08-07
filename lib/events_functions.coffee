@@ -1,4 +1,4 @@
-@getSelectedDateIdForDate = (date) ->
+@getSelectedDateId = (date) ->
   "c" + moment(date).format("MDYY")
 
 @monthAndYear = (date) -> [date.getMonth(), date.getFullYear()]

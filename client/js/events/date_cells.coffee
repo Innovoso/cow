@@ -1,29 +1,25 @@
 Template.eventsNav.helpers
   title: =>
-    moment(@calendarDate).format("MMM YY")
+    moment(Session.get 'calendarDate').format("MMM YY")
 
 Template.dateCells.helpers
 
   datesArray: ->
-    getCalendarArrayForMonthWithDate(calendarDate || new Date())
-
+    getCalendarArrayForMonthWithDate(Session.get 'calendarDate' || new Date())
 
 Template.dateCell.helpers
-
   id_c: ->
     "c" + moment(this).format("MDYY")
 
   id_d: ->
     "d" + moment(this).format("MDYY")
 
-
 Template.dateCells.rendered = ->
   # Add circle to current day
-  currentDay = "c" + moment(@currentDate).format("MDYY")
+  currentDay = "c" + moment(Session.get 'currentDate').format("MDYY")
   if $('#' + currentDay)
     $('#' + currentDay).addClass('currentDate')
 
-  # Add dots to calendar representing number of events on day
   Deps.autorun () ->
     events = Events.find().fetch()
     grouped = _.countBy(_.pluck(events, 'startDay'))
@@ -34,14 +30,15 @@ Template.dateCells.rendered = ->
         $("##{id}").addClass('oneEvent')
       else if value == 2
         $("##{id}").addClass('twoEvents')
-      else if value == 3
+      else if value == 3 || value > 3
         $("##{id}").addClass('threeEvents')
 
 Template.dateCells.events
   'click .dateCell': (e) ->
 
-    date = getStartOfMonth(calendarDate)
-    dateId = getSelectedDateIdForDate(date)
+    date = getStartOfMonth(Session.get 'calendarDate')
+    dateId = getSelectedDateId(date)
+    # alert dateId
     $('#' + dateId).removeClass('selectedDate')
 
     $('.dateCell').removeClass('selectedDate')
