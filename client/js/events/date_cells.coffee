@@ -8,18 +8,35 @@ Template.dateCells.helpers
     getCalendarArrayForMonthWithDate(Session.get 'calendarDate' || new Date())
 
 Template.dateCell.helpers
-  id_c: ->
+  id_currentDate: ->
     "c" + moment(this).format("MDYY")
-
-  id_d: ->
+  id_eventDots: ->
     "d" + moment(this).format("MDYY")
+  id_selectDate: ->
+    "s" + moment(this).format("MDYY")
 
 Template.dateCells.rendered = ->
-  # Add circle to current day
-  currentDay = "c" + moment(Session.get 'currentDate').format("MDYY")
-  if $('#' + currentDay)
-    $('#' + currentDay).addClass('currentDate')
+  addCurrentDayCircle()
+  addEventDots()
 
+Template.dateCells.events
+  'click .dateCell': (e) ->
+
+    removeFirstOfMonthSelectDate()
+
+    $('.dateCell').removeClass('selectedDate')
+    $(e.currentTarget).addClass('selectedDate')
+    false
+
+Template.eventsNav.events
+  'click .plus-button': (e) ->
+    Router.go 'createEvent'
+
+Template.createEvent.events
+  'click #invitees': (e) ->
+    Router.go 'friends'
+
+addEventDots = ->
   Deps.autorun () ->
     events = Events.find().fetch()
     grouped = _.countBy(_.pluck(events, 'startDay'))
@@ -33,22 +50,15 @@ Template.dateCells.rendered = ->
       else if value == 3 || value > 3
         $("##{id}").addClass('threeEvents')
 
-Template.dateCells.events
-  'click .dateCell': (e) ->
+addCurrentDayCircle = ->
+  currentDay = @getIdForCurrentDate()
+  console.log currentDay
+  if $('#' + currentDay)
+    $('#' + currentDay).addClass('currentDate')
 
-    date = getStartOfMonth(Session.get 'calendarDate')
-    dateId = getSelectedDateId(date)
-    # alert dateId
-    $('#' + dateId).removeClass('selectedDate')
+removeFirstOfMonthSelectDate = ->
+  date = getStartOfMonth(Session.get 'calendarDate')
+  dateId = getIdForCurrentDate(date)
+  $('#' + dateId).removeClass('selectedDate')
 
-    $('.dateCell').removeClass('selectedDate')
-    $(e.currentTarget).addClass('selectedDate')
-    false
 
-Template.eventsNav.events
-  'click .plus-button': (e) ->
-    Router.go 'createEvent'
-
-Template.createEvent.events
-  'click #invitees': (e) ->
-    Router.go 'friends'

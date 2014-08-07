@@ -6,9 +6,12 @@ getFirstOfNextMonth = (date) ->
   [month, year] = monthAndYear(date)
   new Date(year, month + 1, 1, 0, 0, 0, 0)
 
-addSelectDateToFirstOfMonth = (date) ->
-  dateId = getSelectedDateId(date)
-  $('#' + dateId).addClass('selectedDate')
+addSelectDateToFirstOfMonth = ->
+  currentDayId = getIdForCurrentDate()
+  dateId = getIdForSelectDate(Session.get 'calendarDate')
+
+  if $('#' + currentDayId).length == 0
+    $('#' + dateId).addClass('selectedDate')
 
 Template.eventsCalendar.rendered = =>
   $('.dateCells').swipe
@@ -27,7 +30,5 @@ Template.eventsCalendar.rendered = =>
 
       instance = UI.renderWithData(Template.dateCells, { feed: cells })
       UI.insert(instance, $('.dateCells')[0])
-      currentDayId = getSelectedDateId(Session.get 'currentDate')
 
-      if $('#' + currentDayId).length == 0
-        addSelectDateToFirstOfMonth(Session.get 'calendarDate')
+      addSelectDateToFirstOfMonth()

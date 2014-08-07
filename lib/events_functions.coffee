@@ -1,5 +1,11 @@
-@getSelectedDateId = (date) ->
-  "c" + moment(date).format("MDYY")
+@getIdForCurrentDate = ->
+  "c" + moment(Session.get 'currentDate').format("MDYY")
+
+@getIdForEventDots = (date) ->
+  "d" + moment(date).format("MDYY")
+
+@getIdForSelectDate = (date) ->
+  "s" + moment(date).format("MDYY")
 
 @monthAndYear = (date) -> [date.getMonth(), date.getFullYear()]
 
@@ -20,15 +26,10 @@
   newDate
 
 @getCalendarArrayForMonthWithDate = (date) ->
-
   startOfMonth = getStartOfMonth(date)
   daysFromPreviousMonth = startOfMonth.getDay()
-
   startDate = deltaDays(getStartOfMonth(date), -daysFromPreviousMonth)
-
   dateArray = []
-
   for i in [0...42]
     dateArray.push deltaDays(startDate, i)
-
   return dateArray
