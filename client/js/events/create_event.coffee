@@ -15,29 +15,22 @@ Template.createEvent.events 'submit form#createEvent' : (event, template) ->
 
   title       = template.find "input[name=title]"
   location    = template.find "input[name=location]"
-
   startDay    = template.find "input[name=startDay]"
   startTime   = template.find "input[name=startTime]"
-
   endDay      = template.find "input[name=endDay]"
   endTime     = template.find "input[name=endTime]"
-
-  # friends
   notes       = template.find "input[name=notes]"
 
   startDateTime = new Date(startDay.value.concat(" ", startTime.value)).toUTCString()
   endDateTime   = new Date(endDay.value.concat(" ", endTime.value)).toUTCString()
   startDay      = new Date(startDay.value)
 
-
   data = {
     title            : title.value,
     location         : location.value,
-
     startDay         : startDay,
     startDateTime    : startDateTime,
     endDateTime      : endDateTime,
-
     notes            : notes.value
   }
 

@@ -52,7 +52,6 @@ addEventDots = ->
 
 addCurrentDayCircle = ->
   currentDay = @getIdForCurrentDate()
-  console.log currentDay
   if $('#' + currentDay)
     $('#' + currentDay).addClass('currentDate')
 
