@@ -4,8 +4,8 @@
 @getIdForEventDots = (date) ->
   "d" + moment(date).format("MDYY")
 
-@getIdForSelectDate = (date) ->
-  "s" + moment(date).format("MDYY")
+@getIdDate = (date) ->
+  moment(date).format("MDYY")
 
 @monthAndYear = (date) -> [date.getMonth(), date.getFullYear()]
 

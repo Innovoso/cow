@@ -1,19 +1,17 @@
 <template name="eventsList">
-  <div class="eventsList">
-    <div class="event">
-      <div class="event-details small-7 columns">
-        <div class="row">
-          <div class="event-name small-12 columns">
-            {{title}}
-          </div>
+  <div class="event">
+    <div class="event-details small-7 columns">
+      <div class="row">
+        <div class="event-name small-12 columns">
+          {{title}}
         </div>
       </div>
-      <div class="event-details small-5 columns">
-        <div class="row">
-          <div class="small-12 columns event-time small-labels">
-            {{formatEventsListStartTime startDateTime}}
-            {{formatEventsListEndTime endDateTime}}
-          </div>
+    </div>
+    <div class="event-details small-5 columns">
+      <div class="row">
+        <div class="small-12 columns event-time small-labels">
+          {{formatEventsListStartTime startDateTime}}
+          {{formatEventsListEndTime endDateTime}}
         </div>
       </div>
     </div>

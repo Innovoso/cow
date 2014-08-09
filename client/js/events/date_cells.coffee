@@ -12,8 +12,8 @@ Template.dateCell.helpers
     "c" + moment(this).format("MDYY")
   id_eventDots: ->
     "d" + moment(this).format("MDYY")
-  id_selectDate: ->
-    "s" + moment(this).format("MDYY")
+  id_date: ->
+    moment(this).format("MDYY")
 
 Template.dateCells.rendered = ->
   addCurrentDayCircle()
@@ -21,12 +21,12 @@ Template.dateCells.rendered = ->
 
 Template.dateCells.events
   'click .dateCell': (e) ->
-
     removeFirstOfMonthSelectDate()
+    addFirstOfMonthSelectDate(e)
 
-    $('.dateCell').removeClass('selectedDate')
-    $(e.currentTarget).addClass('selectedDate')
-    false
+    # $('.eventsList').fadeOut(1).remove()
+    console.log $(e)
+
 
 Template.eventsNav.events
   'click .plus-button': (e) ->
@@ -60,4 +60,8 @@ removeFirstOfMonthSelectDate = ->
   dateId = getIdForCurrentDate(date)
   $('#' + dateId).removeClass('selectedDate')
 
+addFirstOfMonthSelectDate = (e) ->
+  $('.dateCell').removeClass('selectedDate')
+  $(e.currentTarget).addClass('selectedDate')
+  false
 

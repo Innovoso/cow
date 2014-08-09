@@ -1,7 +1,11 @@
 Template.eventsCalendar.event = ->
+  startDate = Session.get 'calendarDate'
+  endDate = getEndOfMonth(Session.get 'calendarDate')
+  renderEventsList(startDate, endDate)
+
+renderEventsList = (startDate, endDate) ->
   tempData = []
   data = []
-  calendarDate = moment(Session.get 'calendarDate').format('MMYY')
 
   Events.find().forEach (obj) ->
     event = {
@@ -13,7 +17,6 @@ Template.eventsCalendar.event = ->
     tempData.push(event)
 
   for e in tempData
-    if moment(e.startDateTime).format('MMYY') == calendarDate
+    if moment(startDate).isBefore(e.startDateTime) && moment(endDate).isAfter(e.startDateTime)
       data.push(e)
   data
-
