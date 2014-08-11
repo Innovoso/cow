@@ -8,7 +8,7 @@ getFirstOfNextMonth = (date) ->
 
 addSelectDateToFirstOfMonth = ->
   currentDayId = getIdForCurrentDate()
-  dateId = getIdDate(Session.get 'calendarDate')
+  dateId = getIdForSelectDate(Session.get 'calendarDate')
 
   if $('#' + currentDayId).length == 0
     $('#' + dateId).addClass('selectedDate')

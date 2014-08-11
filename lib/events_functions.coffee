@@ -4,7 +4,7 @@
 @getIdForEventDots = (date) ->
   "d" + moment(date).format("MDYY")
 
-@getIdDate = (date) ->
+@getIdForSelectDate = (date) ->
   moment(date).format("MDYY")
 
 @monthAndYear = (date) -> [date.getMonth(), date.getFullYear()]
@@ -33,3 +33,32 @@
   for i in [0...42]
     dateArray.push deltaDays(startDate, i)
   return dateArray
+
+@getEventsList = (startDate, endDate) ->
+  tempData = []
+  data = []
+
+  Events.find().forEach (obj) ->
+    event = {
+      title:           obj.title,
+      location:        obj.location,
+      startDateTime:   obj.startDateTime
+      endDateTime:     obj.endDateTime,
+    }
+    tempData.push(event)
+
+  startOfMonth = getStartOfMonth(startDate)
+  daysFromPreviousMonth = startOfMonth.getDay()
+  startDate = deltaDays(getStartOfMonth(startDate), -daysFromPreviousMonth)
+
+  endOfMonth = getEndOfMonth(endDate)
+  daysFromNextMonth = endOfMonth.getDay()
+  endDate = deltaDays(getEndOfMonth(endDate), daysFromNextMonth)
+
+  endDate = endDate.setHours(23,59,59,999)
+
+  for e in tempData
+    eventDate = moment.utc(e.startDateTime).toDate()
+    if startDate <= eventDate && eventDate <= endDate
+      data.push(e)
+  data

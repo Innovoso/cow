@@ -3,7 +3,6 @@ Template.eventsNav.helpers
     moment(Session.get 'calendarDate').format("MMM YY")
 
 Template.dateCells.helpers
-
   datesArray: ->
     getCalendarArrayForMonthWithDate(Session.get 'calendarDate' || new Date())
 
@@ -12,8 +11,11 @@ Template.dateCell.helpers
     "c" + moment(this).format("MDYY")
   id_eventDots: ->
     "d" + moment(this).format("MDYY")
+  id_selectDate: ->
+    "s" + moment(this).format("MDYY")
   id_date: ->
     moment(this).format("MDYY")
+    # this
 
 Template.dateCells.rendered = ->
   addCurrentDayCircle()
@@ -22,11 +24,22 @@ Template.dateCells.rendered = ->
 Template.dateCells.events
   'click .dateCell': (e) ->
     removeFirstOfMonthSelectDate()
-    addFirstOfMonthSelectDate(e)
+    addSelectDate(e)
 
-    # $('.eventsList').fadeOut(1).remove()
-    console.log $(e)
+    # startDate = new Date(e.currentTarget.id)
+    # endDate = new Date(e.currentTarget.id)
 
+    # console.log startDate
+    # console.log endDate
+
+    # events = renderEventsList startDate, endDate
+    # console.log events
+
+    # $('.eventsContainer').fadeOut(1).remove()
+
+    # instance = UI.renderWithData(Template.eventsList, {feed: events})
+    # console.log instance
+    # UI.insert(instance, $('.eventsList')[0])
 
 Template.eventsNav.events
   'click .plus-button': (e) ->
@@ -60,7 +73,7 @@ removeFirstOfMonthSelectDate = ->
   dateId = getIdForCurrentDate(date)
   $('#' + dateId).removeClass('selectedDate')
 
-addFirstOfMonthSelectDate = (e) ->
+addSelectDate = (e) ->
   $('.dateCell').removeClass('selectedDate')
   $(e.currentTarget).addClass('selectedDate')
   false
