@@ -6,11 +6,11 @@
 }
 
 .eventsList {
-
   padding-top: 0px;
   background: white;
-  height: 100%;
-
+  height: 300px;
+  overflow: auto;
+  background-color: #666666;
 
   .event {
     width: 100%;
@@ -21,6 +21,10 @@
 
     &:last-of-type {
       border-bottom: 1px solid @gray;
+    }
+
+    &:first-of-type {
+      border-top: 0px;
     }
 
     .event-name {
@@ -55,7 +59,6 @@
 }
 
 .dayBar {
-
   margin: 0;
   border: 0;
   width: 100%;
@@ -64,7 +67,7 @@
     float: left;
     background: white;
     text-align: center;
-    padding: 10px 0 7px 0;
+    padding: 7px 0 6px 0;
     color: @gray;
     font-size: 0.5em;
     width: 14.2857143%;
@@ -86,6 +89,8 @@
   width: 100%;
   background-color: white;
   overflow: auto;
+  border-bottom: 1px solid @gray;
+
 }
 
 .dateCell {
@@ -97,7 +102,7 @@
 }
 
 .dateCellData {
-  padding: 8px;
+  padding: 1px;
 }
 
 .selectedDate {
