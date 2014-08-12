@@ -9,12 +9,15 @@ UI.registerHelper "formatCalendarCellDate", (datetime) =>
   moment(datetime).format('D')
 
 UI.registerHelper "formatEventsListStartTime", (datetime) =>
-  moment(datetime).format('h mm a :')
+  moment(datetime).format('h mm a')
 
 UI.registerHelper "formatEventsListEndTime", (datetime) =>
-  moment(datetime).format(' h mm a')
+  if datetime
+    "-" + moment(datetime).format('h mm a')
 
-
+UI.registerHelper "formatEventsListDay", (datetime) =>
+  moment(datetime).format('DD MMM YY')
+# moment(datetime).format('e') + " " +
 
 
 

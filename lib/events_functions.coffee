@@ -37,11 +37,13 @@
 @getEventsList = (startDate, endDate) ->
   tempData = []
   data = []
+  eventsArray = []
 
   Events.find().forEach (obj) ->
     event = {
       title:           obj.title,
       location:        obj.location,
+      startDay:        obj.startDay,
       startDateTime:   obj.startDateTime
       endDateTime:     obj.endDateTime,
     }
@@ -54,11 +56,15 @@
   endOfMonth = getEndOfMonth(endDate)
   daysFromNextMonth = endOfMonth.getDay()
   endDate = deltaDays(getEndOfMonth(endDate), daysFromNextMonth)
-
   endDate = endDate.setHours(23,59,59,999)
 
   for e in tempData
     eventDate = moment.utc(e.startDateTime).toDate()
     if startDate <= eventDate && eventDate <= endDate
       data.push(e)
-  data
+  data = _.sortBy(data, 'startDay')
+
+  grouped = _.groupBy(data, 'startDay')
+  for own key, value of grouped
+    eventsArray.push({key,value})
+  eventsArray

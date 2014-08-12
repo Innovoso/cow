@@ -1,7 +1,14 @@
 <template name="eventsList">
   <div class="eventsContainer">
-    {{#each events}}
-      {{> eventItem }}
+    {{#each eventsArray}}
+      <div class="eventDay">{{formatEventsListDay this.key}}</div>
+      {{#each this.value}}
+        {{> eventItem }}
+      {{/each}}
     {{/each}}
   </div>
+
+  <script>
+    $(".eventDay").scrollTop(10);
+  </script>
 </template>

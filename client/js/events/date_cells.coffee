@@ -26,6 +26,7 @@ Template.dateCells.events
     removeFirstOfMonthSelectDate()
     addSelectDate(e)
 
+    # EVENTS FOR ONLY DATE CELL
     # startDate = new Date(e.currentTarget.id)
     # endDate = new Date(e.currentTarget.id)
 
