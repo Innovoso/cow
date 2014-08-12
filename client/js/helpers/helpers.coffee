@@ -5,13 +5,19 @@ UI.registerHelper 'messageTime', (timestamp) ->
   else
     m.fromNow()
 
-
 UI.registerHelper "formatCalendarCellDate", (datetime) =>
-
   moment(datetime).format('D')
 
+UI.registerHelper "formatEventsListStartTime", (datetime) =>
+  moment(datetime).format('h mm a')
 
+UI.registerHelper "formatEventsListEndTime", (datetime) =>
+  if datetime
+    "-" + moment(datetime).format('h mm a')
 
+UI.registerHelper "formatEventsListDay", (datetime) =>
+  moment(datetime).format('DD MMM YY')
+# moment(datetime).format('e') + " " +
 
 
 

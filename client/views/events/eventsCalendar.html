@@ -1,15 +1,14 @@
-<template name="event">
-
-  {{> events_nav }}
-
+<template name="eventsCalendar">
+  {{> eventsNav }}
   <div class="calendar">
     {{> dayBar}}
     <div class="dateCells">
       {{> dateCells}}
     </div>
+    <div class="eventsList">
+      {{> eventsList}}
+    </div>
   </div>
-
-  {{> eventsList }}
 </template>
 
 
