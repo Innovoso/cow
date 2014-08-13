@@ -7,7 +7,8 @@ scrollTop = (element) ->
 
 getUserName = ->
   user = Meteor.user()
-  user.name || user.emails[0].address
+  name = user.profile.name if user.profile
+  name || user.emails[0].address
 
 getAndClearInput = (input_field) ->
   message = input_field.val()
@@ -21,13 +22,12 @@ Template.chat.helpers
   messages: -> Messages.find({}, { sort: { time: 1 }})
 
 Template.chat.events
-  'submit form': (e) ->
+  'submit form': (e, t) ->
     e.preventDefault()
-    content = getAndClearInput($(e.target).find('[name=message]'))
-    username = getUserName()
-    userId = Meteor.userId()
-    message = createMessage(userId, username, content)
-    Messages.insert(message)
+    content = getAndClearInput($(t.find('#message')))
+    if content.length > 0
+      message = createMessage(Meteor.userId(), getUserName(), content)
+      Messages.insert(message)
     false
 
 Template.message.helpers
