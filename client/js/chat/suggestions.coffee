@@ -1,5 +1,5 @@
+haveSuggestions = -> Suggestions.shortlist().length > 0
+
 Template.suggestions.helpers
-  tags: (filter) ->
-    Suggestions.tags(filter)
-  filter: ->
-    Session.get('smartFilter')
+  suggestions: -> Suggestions.shortlist()
+  show: -> haveSuggestions()

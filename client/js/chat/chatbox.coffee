@@ -1,17 +1,10 @@
+caretPositionChanged = (input_field) ->
+  Session.set('currentSmartTag', currentSmartTag(input_field))
+
 Template.chatbox.events
+
   'keyup #message': (e, t) ->
-    message = e.target.value
-    Session.set('smartFilter', message)
-    tags = Suggestions.tags(message)
+    caretPositionChanged $(e.target)
 
-    if tags
-      $('#suggestions').show()
-    else
-      $('#suggestions').hide()
-      Session.set('smartFilter', '')
-
-  'click #hash-button': (e, t) ->
-    e.preventDefault()
-    $('#message').caret('#')
-    $('#message').trigger('keyup')
-    false
+  'click #message': (e, t) ->
+    caretPositionChanged $(e.target)

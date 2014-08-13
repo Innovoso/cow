@@ -3,11 +3,17 @@
     <div class="row">
       <div class="small-12 columns">
         {{> suggestions }}
+        {{> smart_calendar}}
       </div>
     </div>
     <div class="row">
       <div class="small-1 columns">
-        <button id="hash-button">#</button>
+        {{#if currentSmartTag }}
+          <button id="right-arrow-button"></button>
+        {{/if }}
+        {{#unless currentSmartTag }}
+          <button id="hash-button">#</button>
+        {{/unless }}
       </div>
       <div class="small-11 columns">
         <form>

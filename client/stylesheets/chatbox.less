@@ -1,5 +1,6 @@
 @import url("fonts.import.less");
 @import url("colors.import.less");
+@import url("/packages/font-awesome-4-less/font-awesome.import.less");
 
 .chatbox {
   padding: 5px;
@@ -36,6 +37,11 @@
     font-size: 1.4em;
     background: transparent !important;
     color: @blue-dark;
+  }
+
+  #right-arrow-button {
+    #fa-icon(arrow-right, @blue-dark);
+    font-size: 1.3em;
   }
 
   .row {

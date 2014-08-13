@@ -1,29 +1,17 @@
 @Suggestions = new Meteor.Collection null
 
-Suggestions.insert({ tag: '#suggest.location', terms: ['#suggest.location', '#suggest', '#location'] })
-Suggestions.insert({ tag: '#suggest.date', terms: ['#suggest.date', '#suggest', '#date'] })
-Suggestions.insert({ tag: '#suggest.time', terms: ['#suggest.time', '#suggest', '#time'] })
-Suggestions.insert({ tag: '#suggest.task', terms: ['#suggest.task', '#suggest', '#task'] })
+Suggestions.insert({ type: 'location', name: '#suggest.location()' })
+Suggestions.insert({ type: 'date', name: '#suggest.date()' })
+Suggestions.insert({ type: 'time', name: '#suggest.time()' })
+Suggestions.insert({ type: 'task', name: '#suggest.task()' })
 
-TagPattern = /#[\w\. ]*/g
+fuzzySearch = (searchTerm, objects, fieldToSearch) ->
+  pattern = searchTerm.replace(/\s+/g, '').split('').join('.*')
+  _.filter objects, (object) ->
+    object[fieldToSearch].match(new RegExp(pattern, 'i'))
 
-Suggestions.tags = (query) ->
-
-  findLastHashTerm = (x) ->
-    [first, ..., last] = x.match(TagPattern) || []
-    last
-
-  searchString = (string, term) ->
-    string.search(new RegExp(term)) == 0
-
-  searchTagTerms = (array, term) ->
-    _.any array, (string) -> searchString(string, term)
-
-  filterTagsByTerms = (tags, query) ->
-    _.filter tags, (tag) -> searchTagTerms(tag.terms, query)
-
-  if query = findLastHashTerm(query)
+Suggestions.shortlist = ->
+  if tag = Session.get('currentSmartTag')
     tags = Suggestions.find().fetch()
-    tags = filterTagsByTerms(tags, query)
-    tags = _.pluck(tags, 'tag')
-    tags unless tags.length == 0
+    fuzzySearch(tag.name, tags, "name")
+  else []
