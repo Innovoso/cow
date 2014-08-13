@@ -13,5 +13,5 @@ fuzzySearch = (searchTerm, objects, fieldToSearch) ->
 Suggestions.shortlist = ->
   if tag = Session.get('currentSmartTag')
     tags = Suggestions.find().fetch()
-    fuzzySearch(tag.name, tags, "name")
+    fuzzySearch(tag.tag, tags, "name")
   else []
