@@ -1,7 +1,7 @@
 haveSuggestions = -> Suggestions.shortlist().length > 0
 
 replaceCurrentSmartTag = (value) ->
-  input = $('#message')
+  input = messageField()
   if curSmartTag = Session.get('currentSmartTag')
     input.range(curSmartTag.start, curSmartTag.end)
     input.range(value)

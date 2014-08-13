@@ -27,7 +27,7 @@ findCurrentTag = (input_field) ->
 
   caretOnTag = (tag) ->
     if tag
-      cursorPos = $('#message').caret()
+      cursorPos = messageField().caret()
       cursorPos >= tag.start && cursorPos <= tag.end && tag.start >= 0
     else
       false
