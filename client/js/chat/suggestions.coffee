@@ -6,6 +6,7 @@ replaceCurrentSmartTag = (value) ->
     input.range(curSmartTag.start, curSmartTag.end)
     input.range(value)
   input.caret(input.range().end - 1)
+  input.trigger('keyup')
 
 Template.suggestions.helpers
   show: -> haveSuggestions()
