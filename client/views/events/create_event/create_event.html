@@ -1,0 +1,11 @@
+<template name="createEvent">
+  <form id="createEvent">
+    {{> createEventNav}}
+
+    {{#if isMobile}}
+      {{> createEventsInputsMobile}}
+    {{else}}
+      {{> createEventsInputsNonMobile}}
+    {{/if}}
+  </form>
+</template>

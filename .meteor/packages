@@ -4,6 +4,7 @@
 # but you can also edit it by hand.
 
 standard-app-packages
+insecure
 coffeescript
 iron-router
 foundation
@@ -12,3 +13,5 @@ font-awesome-4-less
 accounts-base
 accounts-password
 jquery-easing
+pickadate
+pages

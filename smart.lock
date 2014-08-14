@@ -6,6 +6,8 @@
       "foundation": {},
       "font-awesome-4-less": {},
       "jquery-easing": {}
+      "pickadate": {},
+      "pages": {}
     },
     "packages": {
       "iron-router": {
@@ -27,6 +29,16 @@
         "git": "https://github.com/kenyee/meteor-jquery-easing.git",
         "tag": "v1.3.0",
         "commit": "556cf106f23692d78e5c92aa8a3bc99cf24bbd49"
+      },
+      "pickadate": {
+        "git": "https://github.com/mervas/meteor-pickadate.git",
+        "tag": "v3.3.1",
+        "commit": "830c2774a1e58af03c143e7f76c9a26b79aa48a3"
+      },
+      "pages": {
+        "git": "https://github.com/alethes/meteor-pages.git",
+        "tag": "v1.0.20",
+        "commit": "717cbac89f02d2f1bb160b24c997050ce2dee45e"
       },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",
