@@ -19,5 +19,5 @@ Template.login.events
         console.log "Logged in as:"
         console.log Meteor.user()
 
-        Router.go('chat')
+        Router.go('eventsCalendar')
     false

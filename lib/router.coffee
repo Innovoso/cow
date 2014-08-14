@@ -13,7 +13,8 @@ Router.map ->
   @route 'createEvent'
 
 autoLogin = (pause) ->
-  Router.go 'chat' if Meteor.userId()
+  console.log "autoLogin"
+  Router.go 'eventsCalendar' if Meteor.userId()
 
 requireLogin = (pause) ->
   Router.go 'login' unless Meteor.userId()
