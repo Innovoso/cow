@@ -63,4 +63,5 @@ findCurrentTag = (input_field) ->
     appendTagName(tag)
     appendInTag(input_field, tag)
 
+  console.log tag
   tag
