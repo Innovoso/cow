@@ -3,6 +3,7 @@
     "iron-router": {},
     "foundation": {},
     "font-awesome-4-less": {},
+    "jquery-easing": {},
     "pickadate": {},
     "pages": {}
   }

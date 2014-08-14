@@ -1,8 +1,32 @@
 <template name="chatbox">
   <div class="chatbox">
-    <form>
-      <input type="text" name="message">
-      <input type="submit" value="Send">
-    </form>
+    <div class="row">
+      <div class="small-12 columns">
+        {{> suggestions }}
+        {{> smart_calendar}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-1 columns">
+        {{#if showHashButton }}
+          <button id="hash-button">#</button>
+        {{/if }}
+        {{#unless showHashButton }}
+          <button id="right-arrow-button"></button>
+        {{/unless }}
+      </div>
+      <div class="small-11 columns">
+        <form>
+          <div class="row">
+            <div class="small-9 columns">
+              <input type="text" autocomplete="off" name="message" id="message">
+            </div>
+            <div class="small-3 columns center">
+              <input type="submit" value="Send">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </template>

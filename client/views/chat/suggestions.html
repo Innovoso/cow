@@ -1,0 +1,9 @@
+<template name="suggestions">
+  {{#if show }}
+    <div id="suggestions">
+      {{#each suggestions}}
+        <div class="suggestion" data-value="{{name}}" data-type="{{type}}">{{name}}</div>
+      {{/each}}
+    </div>
+  {{/if }}
+</template>

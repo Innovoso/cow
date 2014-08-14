@@ -1,0 +1,51 @@
+@import url("fonts.import.less");
+@import url("colors.import.less");
+
+@form-width: 250px;
+
+.accounts {
+
+  text-align: center;
+
+  h1 {
+    color: white;
+    font-weight: 600;
+    font-size: 2.5em;
+    text-align: center;
+    margin: 30px 0;
+  }
+
+  input {
+    display: block;
+    margin: 20px 0;
+    font-size: 1.2em;
+    border-radius: 2px;
+    border: 0;
+    padding: 10px;
+    width: @form-width;
+  }
+
+  input[type=submit] {
+    width: @form-width;
+    color: @green-extra-light;
+    background: @green;
+    border: 1px solid @green-light;
+    margin-top: 40px;
+  }
+
+  form {
+    width: @form-width;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+
+  a {
+    font-size: 1em;
+    margin: 0 20px;
+    color: white;
+  }
+
+  .links {
+    padding-top: 20px;
+  }
+}

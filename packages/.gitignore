@@ -2,9 +2,12 @@
 /blaze-layout
 /foundation
 /font-awesome-4-less
-/pickadate
-/pages
+/jquery-easing
 /iron-layout
 /iron-core
 /iron-dynamic-template
+/iron-transitioner
+/velocityjs
+/animation-helper
+/pickadate
 /pages

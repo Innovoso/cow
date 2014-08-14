@@ -5,6 +5,7 @@
       "iron-router": {},
       "foundation": {},
       "font-awesome-4-less": {},
+      "jquery-easing": {}
       "pickadate": {},
       "pages": {}
     },
@@ -23,6 +24,11 @@
         "git": "https://github.com/svub/fontawesome4-less.git",
         "tag": "v4.4.0",
         "commit": "250d2336a217c18eb70e9d074784a7db3ca38472"
+      },
+      "jquery-easing": {
+        "git": "https://github.com/kenyee/meteor-jquery-easing.git",
+        "tag": "v1.3.0",
+        "commit": "556cf106f23692d78e5c92aa8a3bc99cf24bbd49"
       },
       "pickadate": {
         "git": "https://github.com/mervas/meteor-pickadate.git",

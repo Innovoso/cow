@@ -1,0 +1,59 @@
+@import url("fonts.import.less");
+@import url("colors.import.less");
+@import url("/packages/font-awesome-4-less/font-awesome.import.less");
+
+.chatbox {
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+  border-top: 1px solid #ddd;
+
+  form {
+    margin: 0;
+  }
+
+  input[type=text] {
+    margin: 0 10px;
+    display: inline;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  input[type=submit] {
+    color: @blue-dark;
+    background: transparent;
+    border: 0;
+    padding: 7px 7px 7px 19px;
+  }
+
+  button {
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 1.4em;
+    background: transparent !important;
+    color: @blue-dark;
+  }
+
+  #right-arrow-button {
+    #fa-icon(arrow-right, @blue-dark);
+    font-size: 1.3em;
+  }
+
+  .row {
+    margin: 0;
+  }
+
+  .columns {
+    margin: 0;
+    padding: 0;
+  }
+
+  .columns.center {
+    text-align: center;
+  }
+}

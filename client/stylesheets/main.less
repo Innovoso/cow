@@ -1,5 +1,5 @@
-@import url("fonts.lessimport");
-@import url("colors.lessimport");
+@import url("fonts.import.less");
+@import url("colors.import.less");
 @import url("/packages/font-awesome-4-less/font-awesome.import.less");
 
 body {
@@ -18,116 +18,23 @@ nav {
   position: fixed;
   z-index: 10;
   top: 0;
-
-  .columns {
-    padding-top: 13px;
-  }
-
-  .title {
-    font-weight: 700;
-    margin: 0;
-  }
-
-  .left {
-    text-align: left;
-  }
-
-  .right {
-    text-align: right;
-  }
-}
-
-.timestamp {
-  font-size: 0.7em;
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-}
-
-.chatbox {
-  padding: 0 5px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #eee;
-  border-top: 1px solid #ddd;
-
-  form {
-    margin: 0;
-  }
+  .columns { padding-top: 13px; }
+  .title { font-weight: 700; margin: 0; }
+  .left { text-align: left; }
+  .right { text-align: right; }
 
   button {
-    margin-top: -10px;
-    margin-bottom: 0;
     background: rgba(0,0,0,0);
-    width: 65px;
-    font-weight: 500;
-    font-size: 0.8em !important;
-  }
-}
-
-
-// Login stuff
-
-.title {
-
-  text-align: center;
-  margin-bottom: 30px;
-
-  h1 {
-    color: white;
+    margin-top: -10px;
     font-weight: 600;
-    font-size: 2.5em;
-    font-family: 'Exo 2', sans-serif;
   }
 }
 
-.loginForm {
-  margin: 60px 30px;
-
-  label {
-    color: white;
-  }
-
-  input {
-    border-radius: 5px;
-    border: 0;
-  }
+.nav-padded {
+  margin-top: 45px;
 }
 
-#login-buttons-password {
-  background: @green;
-  box-shadow: 0 5px 0 0 @green-shadow;
-  font-family: "Exo 2", sans-serif;
-  font-weight: 600;
-  color: white;
-
-  margin: 50px auto;
-  width: 120px;
-  height: 40px;
-  text-align: center;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.additional-link-container {
-  font-size: 0.8em;
-  display: inline;
-  margin: 0 15px;
-}
-
-// ==========
-// login hack
-// ==========
-
-#login-sign-in-link, .login-close-text {
-  display: none;
-}
-
-// ===========
-// Events View Styles
-// ===========
+// icons
 
 .plus-button {
   #fa-icon(plus, white);
@@ -141,15 +48,24 @@ nav {
   margin-top: 1px;
 }
 
+.summary-button {
+  #fa-icon(info, white);
+  font-size: 1.3em;
+  margin-top: -1px;
+}
+
+.settings-button {
+  #fa-icon(cog, white);
+  font-size: 1.3em;
+  margin-top: -1px;
+}
+
 .check-button {
   #fa-icon(check, white);
   font-size: 1.2em;
   margin: 0px;
   background: none !important;
 }
-
-
-
 
 // ===========
 // Create Event Styles
@@ -198,5 +114,3 @@ nav {
   margin-top: 10px;
   rows: 5;
 }
-
-
