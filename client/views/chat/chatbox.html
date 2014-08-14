@@ -8,11 +8,11 @@
     </div>
     <div class="row">
       <div class="small-1 columns">
-        {{#if currentSmartTag }}
-          <button id="right-arrow-button"></button>
-        {{/if }}
-        {{#unless currentSmartTag }}
+        {{#if showHashButton }}
           <button id="hash-button">#</button>
+        {{/if }}
+        {{#unless showHashButton }}
+          <button id="right-arrow-button"></button>
         {{/unless }}
       </div>
       <div class="small-11 columns">
