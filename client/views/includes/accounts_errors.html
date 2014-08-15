@@ -1,0 +1,14 @@
+<template name="accounts_errors">
+  <div class="accounts_errors">
+    {{#each accounts_errors }}
+      {{> accounts_error }}
+    {{/each }}
+  </div>
+</template>
+
+<template name="accounts_error">
+  <div data-alert class="accounts_error alert-box alert radius">
+    {{message}}
+    <a href="#" class="close">&times;</a>
+  </div>
+</template>

@@ -14,10 +14,7 @@ Template.login.events
 
     Meteor.loginWithPassword email, password, (error) ->
       if error
-        console.log "User not found or password incorrect"
+        throwAccountsError("Please check your username or password.")
       else
-        console.log "Logged in as:"
-        console.log Meteor.user()
-
         Router.go('eventsCalendar')
     false

@@ -2,12 +2,18 @@ Router.configure
   layoutTemplate: 'layout'
 
 Router.map ->
-  @route 'login', { path: '/' }
+
+  @route 'login',
+    path: '/'
+    layoutTemplate: 'accounts_layout'
+
+  @route 'register',
+    layoutTemplate: 'accounts_layout'
+
   @route 'chat',
     waitOn: -> Meteor.subscribe 'messages'
   @route 'friends'
   @route 'event', { path: '/events' }
-  @route 'register'
   @route 'reset_password'
   @route 'eventsCalendar', { waitOn: () -> return Meteor.subscribe "events" }
   @route 'createEvent'

@@ -12,11 +12,8 @@ Template.register.events
     if isValidPassword(password)
       Accounts.createUser { email: email, password: password }, (error) ->
         if error
-          console.log "Accounts creation failed"
+          throwAccountsError("Opps. Your account was not created.")
         else
-          console.log "Success. Logged in as:"
-          console.log Meteor.user()
-
           Router.go('event')
 
     false
