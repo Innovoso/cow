@@ -1,6 +1,9 @@
 @import url("fonts.import.less");
 @import url("colors.import.less");
 
+@dayBarHeight: 24px;
+@calendarHeight: 174px;
+
 #events_calendar {
   background: #666666;
   position: fixed;
@@ -11,7 +14,7 @@
 
 .calendar {
   margin-top: 45px;
-  height: 219px;
+  height: @calendarHeight;
   overflow: auto;
   overflow-y: hidden;
   width: 100%;
@@ -21,13 +24,12 @@
 
 .eventsList {
 
-  padding-top: 0px;
   background: white;
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  top: 264px;
+  top: @calendarHeight + 45px;
   overflow: auto;
   background-color: #666666;
   -webkit-overflow-scrolling: touch;
@@ -92,11 +94,12 @@
   background: white;
   overflow: auto;
   width: 100%;
+  height: @dayBarHeight;
 
   .dayLabel {
     float: left;
     text-align: center;
-    padding: 7px 0 6px 0;
+    padding: 0;
     color: @gray;
     font-size: 0.5em;
     width: 14.2857143%;
