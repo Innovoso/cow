@@ -11,13 +11,22 @@
 
 .calendar {
   margin-top: 45px;
+  height: 219px;
+  overflow: auto;
+  overflow-y: hidden;
+  width: 100%;
+  border-bottom: 1px solid @gray;
 }
 
 .eventsList {
 
   padding-top: 0px;
   background: white;
-  height: 300px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 265px;
   overflow: auto;
   background-color: #666666;
   -webkit-overflow-scrolling: touch;
