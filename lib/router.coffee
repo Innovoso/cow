@@ -25,6 +25,8 @@ Router.map ->
 
   @route 'createEvent'
 
+  @route 'profile'
+
 autoLogin = (pause) ->
   console.log "autoLogin"
   Router.go 'eventsCalendar' if Meteor.userId()

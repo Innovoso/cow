@@ -1,6 +1,6 @@
 Template.side_menu.events
   'click #profile-button': (e, t) ->
-    alert "profile button"
+    Router.go 'profile'
 
   'click #logout-button': (e, t) ->
     Meteor.logout()
