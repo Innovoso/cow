@@ -37,3 +37,5 @@ Router.onBeforeAction requireLogin,
 
 Router.onBeforeAction autoLogin,
   only: ['login', 'register']
+
+Router.onBeforeAction -> clearAccountsErrors()

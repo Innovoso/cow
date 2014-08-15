@@ -8,6 +8,7 @@ Template.login.events
 
   'submit #login-form': (e, t) ->
     e.preventDefault()
+    clearAccountsErrors()
 
     email = trimInput(t.find('#login-email').value)
     password = t.find('#login-password').value

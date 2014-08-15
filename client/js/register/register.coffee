@@ -5,6 +5,7 @@ Template.register.events
 
   'submit #register': (e, t) ->
     e.preventDefault()
+    clearAccountsErrors()
 
     email = t.find('#account-email').value
     password = t.find('#account-password').value
