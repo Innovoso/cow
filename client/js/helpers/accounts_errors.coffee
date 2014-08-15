@@ -4,7 +4,6 @@
   AccountsErrors.insert { message: message, seen: false }
 
 @clearAccountsErrors = ->
-  console.log "lala"
   AccountsErrors.remove { seen: true }
 
 clearAccountError = (errorId) ->
