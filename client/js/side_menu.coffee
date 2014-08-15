@@ -3,4 +3,4 @@ Template.side_menu.events
     alert "profile button"
 
   'click #logout-button': (e, t) ->
-    alert 'logout'
+    Meteor.logout()
