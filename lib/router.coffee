@@ -12,10 +12,17 @@ Router.map ->
 
   @route 'chat',
     waitOn: -> Meteor.subscribe 'messages'
+
   @route 'friends'
-  @route 'event', { path: '/events' }
+
+  @route 'event',
+    path: '/events'
+
   @route 'reset_password'
-  @route 'eventsCalendar', { waitOn: () -> return Meteor.subscribe "events" }
+
+  @route 'eventsCalendar',
+    waitOn: () -> return Meteor.subscribe "events"
+
   @route 'createEvent'
 
 autoLogin = (pause) ->
