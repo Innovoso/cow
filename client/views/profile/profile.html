@@ -1,5 +1,10 @@
 <template name="profile">
   {{> profile_nav }}
-  <div id="profile">
+  <div id="profile" class="accounts nav-padded">
+    <img src="" alt="">
+    <form action="#" id="profile-pic" class="dropzone"></form>
+    <form action="#" id="accounts-form">
+      <input type="text" id="accounts-name" placeholder="Name" value="{{name}}">
+    </form>
   </div>
 </template>
