@@ -3,10 +3,10 @@
 caretPositionChanged = (input_field) ->
   Session.set('currentSmartTag', currentSmartTag(input_field))
 
-Template.chatbox.helpers
+Template.chat_box.helpers
   showHashButton: -> !Session.get('currentSmartTag')
 
-Template.chatbox.events
+Template.chat_box.events
 
   'keydown #message': (e, t) ->
     if e.which == 9
