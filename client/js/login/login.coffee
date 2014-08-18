@@ -8,16 +8,14 @@ Template.login.events
 
   'submit #login-form': (e, t) ->
     e.preventDefault()
+    clearAccountsErrors()
 
     email = trimInput(t.find('#login-email').value)
     password = t.find('#login-password').value
 
     Meteor.loginWithPassword email, password, (error) ->
       if error
-        console.log "User not found or password incorrect"
+        throwAccountsError("Please check your username or password.")
       else
-        console.log "Logged in as:"
-        console.log Meteor.user()
-
-        Router.go('chat')
+        Router.go('eventsCalendar')
     false

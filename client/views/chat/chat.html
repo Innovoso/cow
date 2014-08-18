@@ -1,10 +1,10 @@
 <template name="chat">
-  {{> chatnav }}
-  <div class="messages">
+  {{> chat_nav }}
+  <div id="messages" class="messages">
     {{#each messages}}
       {{> message}}
     {{/each}}
   </div>
-  {{> chatbox }}
+  {{> chat_box }}
 </template>
 

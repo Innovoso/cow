@@ -1,9 +1,7 @@
-@messagesRendered = 0
-
 scrollTop = (element) ->
-  $('html, body').animate({
-    scrollTop: element.offset().top
-  }, '50000', 'easeInOutCubic')
+  $('.messages').animate {
+    scrollTop: $('#messages')[0].scrollHeight
+  }, '50000', 'easeInOutCubic'
 
 getUserName = ->
   user = Meteor.user()
@@ -36,9 +34,8 @@ Template.message.helpers
 Template.message.rendered = ->
   messagesRendered += 1
   if messagesRendered == Messages.find().count()
-    Meteor.defer ->
-      lastMessage = $('.message:last-of-type')
-      scrollTop(lastMessage)
-      lastMessage
-        .transition({ scale: 0.9, opacity: 1, duration: 0})
-        .transition({ scale: 1.0, opacity: 1 }, 300, 'ease')
+    lastMessage = $('.message:last-of-type')
+    scrollTop(lastMessage)
+    lastMessage
+      .transition { scale: 0.9, opacity: 1, duration: 0 }
+      .transition { scale: 1.0, opacity: 1 }, 300, 'ease'

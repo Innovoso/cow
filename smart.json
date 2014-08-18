@@ -5,6 +5,7 @@
     "font-awesome-4-less": {},
     "jquery-easing": {},
     "pickadate": {},
-    "pages": {}
+    "pages": {},
+    "collection-hooks": {}
   }
 }
