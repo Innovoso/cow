@@ -12,6 +12,7 @@ Router.map ->
 
   @route 'chat',
     path: '/chat/:_id'
+    data: -> Events.findOne(this.params._id)
     waitOn: ->
       Meteor.subscribe 'messages', this.params._id
 
