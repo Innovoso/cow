@@ -35,11 +35,11 @@ Template.createEvent.events 'submit form#createEvent' : (event, template) ->
   }
 
   Events.insert data, (err) -> { "Error in saving Event" }
-  Router.go 'eventsCalendar'
+  Router.go 'events'
 
 Template.createEventNav.events
   'click .back-button': (e) ->
-    Router.go 'eventsCalendar'
+    Router.go 'events'
 
 Template.createEvent.isMobile = ->
   return Session.get('isMobile')

@@ -11,16 +11,15 @@ Router.map ->
     layoutTemplate: 'accounts_layout'
 
   @route 'chat',
-    waitOn: -> Meteor.subscribe 'messages'
+    path: '/chat/:_id'
+    waitOn: ->
+      Meteor.subscribe 'messages', this.params._id
 
   @route 'friends'
 
-  @route 'event',
-    path: '/events'
-
   @route 'reset_password'
 
-  @route 'eventsCalendar',
+  @route 'events',
     waitOn: () -> return Meteor.subscribe "events"
 
   @route 'createEvent'
@@ -28,7 +27,7 @@ Router.map ->
   @route 'profile'
 
 autoLogin = (pause) ->
-  Router.go 'eventsCalendar' if Meteor.userId()
+  Router.go 'events' if Meteor.userId()
 
 requireLogin = (pause) ->
   Router.go 'login' unless Meteor.userId()

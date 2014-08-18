@@ -13,7 +13,7 @@ addSelectDateToFirstOfMonth = ->
   if $('#' + currentDayId).length == 0
     $('#' + dateId).addClass('selectedDate')
 
-Template.eventsCalendar.rendered = =>
+Template.events.rendered = =>
   $('.dateCells').swipe
     swipe: (event, direction, distance, duration, fingerCount, fingerData) =>
 
