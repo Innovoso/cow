@@ -32,40 +32,28 @@
   dateArray = []
   for i in [0...42]
     dateArray.push deltaDays(startDate, i)
-  return dateArray
+  dateArray
+
+getCalendarVisibleStartDate = (date) ->
+  startOfMonth = getStartOfMonth(date)
+  deltaDays(startOfMonth, -startOfMonth.getDay())
+
+getCalendarVisibleEndDate = (date) ->
+  endOfMonth = getEndOfMonth(date)
+  deltaDays(endOfMonth, endOfMonth.getDay()).setHours(23,59,59,999)
 
 @getEventsList = (startDate, endDate) ->
-  tempData = []
-  data = []
+  events = Events.find().fetch()
+
+  startDate = getCalendarVisibleStartDate(startDate)
+  endDate = getCalendarVisibleEndDate(endDate)
+
+  events = _.filter events, (event) ->
+    eventDate = moment.utc(event.startDateTime).toDate()
+    startDate <= eventDate <= endDate
+
   eventsArray = []
-
-  Events.find().forEach (obj) ->
-    event = {
-      _id:             obj._id,
-      title:           obj.title,
-      location:        obj.location,
-      startDay:        obj.startDay,
-      startDateTime:   obj.startDateTime
-      endDateTime:     obj.endDateTime,
-    }
-    tempData.push(event)
-
-  startOfMonth = getStartOfMonth(startDate)
-  daysFromPreviousMonth = startOfMonth.getDay()
-  startDate = deltaDays(getStartOfMonth(startDate), -daysFromPreviousMonth)
-
-  endOfMonth = getEndOfMonth(endDate)
-  daysFromNextMonth = endOfMonth.getDay()
-  endDate = deltaDays(getEndOfMonth(endDate), daysFromNextMonth)
-  endDate = endDate.setHours(23,59,59,999)
-
-  for e in tempData
-    eventDate = moment.utc(e.startDateTime).toDate()
-    if startDate <= eventDate && eventDate <= endDate
-      data.push(e)
-  data = _.sortBy(data, 'startDay')
-
-  grouped = _.groupBy(data, 'startDay')
+  grouped = _.groupBy(events, 'startDay')
   for own key, value of grouped
     eventsArray.push({key,value})
   eventsArray
