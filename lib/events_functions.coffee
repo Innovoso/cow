@@ -41,6 +41,7 @@
 
   Events.find().forEach (obj) ->
     event = {
+      _id:             obj._id,
       title:           obj.title,
       location:        obj.location,
       startDay:        obj.startDay,
