@@ -23,7 +23,3 @@ Template.chat_box.events
     input = messageField()
     input.caret('#')
     input.trigger('keyup')
-
-  # 'click #right-arrow-button': (e, t) ->
-  #   input = messageField()
-  #   input.caret('\t')

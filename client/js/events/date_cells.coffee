@@ -15,7 +15,6 @@ Template.dateCell.helpers
     "s" + moment(this).format("MDYY")
   id_date: ->
     moment(this).format("MDYY")
-    # this
 
 Template.dateCells.rendered = ->
   addCurrentDayCircle()
@@ -25,22 +24,6 @@ Template.dateCells.events
   'click .dateCell': (e) ->
     removeFirstOfMonthSelectDate()
     addSelectDate(e)
-
-    # EVENTS FOR ONLY DATE CELL
-    # startDate = new Date(e.currentTarget.id)
-    # endDate = new Date(e.currentTarget.id)
-
-    # console.log startDate
-    # console.log endDate
-
-    # events = renderEventsList startDate, endDate
-    # console.log events
-
-    # $('.eventsContainer').fadeOut(1).remove()
-
-    # instance = UI.renderWithData(Template.eventsList, {feed: events})
-    # console.log instance
-    # UI.insert(instance, $('.eventsList')[0])
 
 Template.eventsNav.events
   'click .plus-button': (e) ->
