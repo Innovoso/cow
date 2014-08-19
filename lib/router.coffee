@@ -10,13 +10,44 @@ Router.map ->
   @route 'register',
     layoutTemplate: 'accounts_layout'
 
-  @route 'chat',
-    waitOn: -> Meteor.subscribe 'messages'
+  # @route 'chat',
+  #   waitOn: -> Meteor.subscribe 'messages'
 
   @route 'friends'
 
   @route 'event',
     path: '/events'
+
+  @route 'login', { path: '/' }
+
+  @route 'chat', {
+    path: '/chat/:_id',
+    waitOn: ->
+      Meteor.subscribe 'messages'
+      # console.log this.params
+
+    # onBeforeAction: =>
+    #   url = window.location.pathname
+    #   id = url.substring(url.lastIndexOf('/') + 1)
+
+    #   eventId = id
+    #   chatId = "chat-" + eventId
+    #   @Messages = new Meteor.Collection(chatId)
+    #   console.log @Messages
+
+    #   if Meteor.isServer
+    #     Meteor.publish chatId, () ->
+    #       return @Messages.find()
+
+    #   if Meteor.isClient
+    #     Meteor.subscribe chatId
+
+      # Messages.remove(Messages.insert { temp: "temp" })
+  }
+
+  @route 'friends'
+  # @route 'event', { path: '/events' }
+  @route 'register'
 
   @route 'reset_password'
 

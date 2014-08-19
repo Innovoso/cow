@@ -17,7 +17,10 @@ createMessage = (userId, name, content) ->
   { userId: userId, name: name, message: content, time: Date.now() }
 
 Template.chat.helpers
-  messages: -> Messages.find({}, { sort: { time: 1 }})
+  messages: ->
+    url = window.location.pathname
+    id = url.substring(url.lastIndexOf('/') + 1)
+    Messages.find({}, { sort: { time: 1 }})
 
 Template.chat.events
   'submit form': (e, t) ->

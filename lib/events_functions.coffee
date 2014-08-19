@@ -44,17 +44,52 @@
       title:           obj.title,
       location:        obj.location,
       startDay:        obj.startDay,
-      startDateTime:   obj.startDateTime
+      startDateTime:   obj.startDateTime,
       endDateTime:     obj.endDateTime,
+      _id:             obj._id
     }
     tempData.push(event)
+
+
+  console.log startDate
+  console.log endDate
+
+  startYear   = startDate.getFullYear()
+  startMonth  = startDate.getMonth()+1
+  startDay    = startDate.getDate()
+
+  console.log startYear
+
+
+
+  startDate = moment(startYear+"-"+startMonth+"-"+startDay)
+
+
+  # endYear   = startDate.getFullYear()
+  # endMonth  = startDate.getMonth()+1
+  # endDay    = startDate.getDate()
+
+
+  # endDate = moment(endYear+"-"+endMonth+"-"+endDay)
+
+  # console.log startDate
+  # console.log endDate
+
+  # console.log startDate
+  # console.log startDate.isValid()
+
+
+
+  # startDate = moment(startDate, 'ddd MMM DD YYYY HH:mm:ss')
+  # startDate = moment()
+
 
   startOfMonth = getStartOfMonth(startDate)
   daysFromPreviousMonth = startOfMonth.getDay()
   startDate = deltaDays(getStartOfMonth(startDate), -daysFromPreviousMonth)
 
   endOfMonth = getEndOfMonth(endDate)
-  daysFromNextMonth = endOfMonth.getDay()
+  daysFromNextMonth = 42 - moment(endDate).daysInMonth()
   endDate = deltaDays(getEndOfMonth(endDate), daysFromNextMonth)
   endDate = endDate.setHours(23,59,59,999)
 
