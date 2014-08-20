@@ -1,6 +1,8 @@
 <Template name="friends_new">
   {{> friends_new_nav }}
   <div id="friends_new" class="nav-padded">
+
+    <!-- friend search bar -->
     <form action="#">
       <div class="row">
         <div class="small-10 columns">
@@ -10,5 +12,14 @@
         </div>
       </div>
     </form>
+
+    <!-- search result list -->
+    <div class="friends-search-list">
+      {{#each friends }}
+        {{#unless isMe this }}
+          {{> friend }}
+        {{/unless}}
+      {{/each }}
+    </div>
   </div>
 </Template>

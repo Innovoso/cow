@@ -4,3 +4,9 @@ Meteor.publish 'friends', (emails = []) ->
       $elemMatch:
         address:
           $in: emails
+
+Meteor.publish 'friendsSearch', (email) ->
+  Meteor.users.find
+    emails:
+      $elemMatch:
+        address: email
