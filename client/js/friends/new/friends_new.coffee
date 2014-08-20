@@ -15,4 +15,6 @@ Template.friends_new.events
 
 Template.friends_new.helpers
   friends: (email) -> Meteor.users.find()
+
   isMe: (user) -> user._id == Meteor.userId()
+

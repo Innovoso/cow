@@ -2,22 +2,12 @@
 
   {{> friends_nav }}
 
-<!--   <div class="friends-search nav-padded">
-    <div class="row">
-      <div class="small-2 columns friends-button"></div>
-      <div class="small-8 columns">
-        <form action="#">
-          <input type="search" placeholder="Type contact name">
-        </form>
-      </div>
-      <div class="small-2 columns plus-circle-button"></div>
-    </div>
-  </div>
- -->
-
- <div class="friends nav-padded">
+  <div class="friends nav-padded">
     {{#each friends }}
-      {{> friend }}
+      {{#unless isMe this }}
+        {{> friend }}
+      {{/unless }}
     {{/each }}
   </div>
+
 </template>

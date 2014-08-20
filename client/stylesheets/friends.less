@@ -32,6 +32,10 @@
   border-top: @table-cell-border;
   padding: 10px 0;
 
+  &.disable {
+    opacity: 0.7;
+  }
+
   &:last-of-type {
     border-bottom: @table-cell-border;
   }
@@ -58,6 +62,14 @@
   .status {
     font-size: 0.7em;
     color: gray;
+  }
+
+  .add-button {
+    border-radius: 5px;
+    margin: 0;
+    margin-top: 5px;
+    padding: 10px;
+    width: 70px;
   }
 }
 
