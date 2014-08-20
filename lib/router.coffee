@@ -16,7 +16,15 @@ Router.map ->
     waitOn: ->
       Meteor.subscribe 'messages', this.params._id
 
-  @route 'friends'
+  @route 'friends',
+    waitOn: ->
+      user = Meteor.user()
+      if user
+        friends = user.profile.friends if user.profile
+        Meteor.subscribe 'friends', friends
+
+  @route 'friends_new',
+    path: '/friends/new'
 
   @route 'reset_password'
 
