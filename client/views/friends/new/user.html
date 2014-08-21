@@ -1,9 +1,9 @@
-<template name="friend">
-  <div class="friend row">
+<template name="user">
+  <div class="friend row {{#if isFriend this}}disable{{/if}}">
     <div class="small-2 columns avatar">
       <img src="/img/github.png" alt="">
     </div>
-    <div class="small-10 columns">
+    <div class="small-8 columns">
       <div class="row">
         <div class="small-12 columns details name">
           {{#each emails }}
@@ -16,6 +16,11 @@
           Available
         </div>
       </div>
+    </div>
+    <div class="small-2 columns">
+      {{#unless isFriend this }}
+        <button data-user-id="{{_id}}" class="add-button">Add</button>
+      {{/unless}}
     </div>
   </div>
 </template>
