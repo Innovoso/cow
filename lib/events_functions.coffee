@@ -41,6 +41,7 @@
 
   Events.find().forEach (obj) ->
     event = {
+      _id:             obj._id,
       title:           obj.title,
       location:        obj.location,
       startDay:        obj.startDay,
@@ -50,39 +51,9 @@
     }
     tempData.push(event)
 
-
-  console.log startDate
-  console.log endDate
-
   startYear   = startDate.getFullYear()
   startMonth  = startDate.getMonth()+1
   startDay    = startDate.getDate()
-
-  console.log startYear
-
-
-
-  startDate = moment(startYear+"-"+startMonth+"-"+startDay)
-
-
-  # endYear   = startDate.getFullYear()
-  # endMonth  = startDate.getMonth()+1
-  # endDay    = startDate.getDate()
-
-
-  # endDate = moment(endYear+"-"+endMonth+"-"+endDay)
-
-  # console.log startDate
-  # console.log endDate
-
-  # console.log startDate
-  # console.log startDate.isValid()
-
-
-
-  # startDate = moment(startDate, 'ddd MMM DD YYYY HH:mm:ss')
-  # startDate = moment()
-
 
   startOfMonth = getStartOfMonth(startDate)
   daysFromPreviousMonth = startOfMonth.getDay()

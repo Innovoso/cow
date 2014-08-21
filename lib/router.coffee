@@ -10,48 +10,17 @@ Router.map ->
   @route 'register',
     layoutTemplate: 'accounts_layout'
 
-  # @route 'chat',
-  #   waitOn: -> Meteor.subscribe 'messages'
-
-  @route 'friends'
-
-  @route 'event',
-    path: '/events'
-
-  @route 'login', { path: '/' }
-
-  @route 'chat', {
-    path: '/chat/:_id',
+  @route 'chat',
+    path: '/chat/:_id'
+    data: -> Events.findOne(this.params._id)
     waitOn: ->
-      Meteor.subscribe 'messages'
-      # console.log this.params
-
-    # onBeforeAction: =>
-    #   url = window.location.pathname
-    #   id = url.substring(url.lastIndexOf('/') + 1)
-
-    #   eventId = id
-    #   chatId = "chat-" + eventId
-    #   @Messages = new Meteor.Collection(chatId)
-    #   console.log @Messages
-
-    #   if Meteor.isServer
-    #     Meteor.publish chatId, () ->
-    #       return @Messages.find()
-
-    #   if Meteor.isClient
-    #     Meteor.subscribe chatId
-
-      # Messages.remove(Messages.insert { temp: "temp" })
-  }
+      Meteor.subscribe 'messages', this.params._id
 
   @route 'friends'
-  # @route 'event', { path: '/events' }
-  @route 'register'
 
   @route 'reset_password'
 
-  @route 'eventsCalendar',
+  @route 'events',
     waitOn: () -> return Meteor.subscribe "events"
 
   @route 'createEvent'
@@ -59,7 +28,7 @@ Router.map ->
   @route 'profile'
 
 autoLogin = (pause) ->
-  Router.go 'eventsCalendar' if Meteor.userId()
+  Router.go 'events' if Meteor.userId()
 
 requireLogin = (pause) ->
   Router.go 'login' unless Meteor.userId()

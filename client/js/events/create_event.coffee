@@ -35,25 +35,12 @@ Template.createEvent.events 'submit form#createEvent' : (event, template) ->
   }
 
   Events.insert data, (err) -> { "Error in saving Event" }
+  Router.go 'events'
 
-  # CREATE NEW MESSAGE COLLECTION WITH NAME AS EVENT ID
-  # n = (Events.find().fetch().length) - 1
-  # id = Events.find().fetch()[n]._id
-
-  # @Messages = new Meteor.Collection(id)
-  # message = {Title: "hihi"}
-  # console.log message
-  # id.insert(message)
-  # id.allow
-  # insert: (userId, doc) -> !!userId
-  # update: -> false
-  # remove: -> false
-
-  Router.go 'eventsCalendar'
 
 Template.createEventNav.events
   'click .back-button': (e) ->
-    Router.go 'eventsCalendar'
+    Router.go 'events'
 
 Template.createEvent.isMobile = ->
   return Session.get('isMobile')

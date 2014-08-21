@@ -1,4 +1,5 @@
 Template.eventsList.events
   'click .event': (e, t) ->
-    id = this._id
-    Router.go '/chat/' + id
+    eventId = $(e.currentTarget).data('event-id')
+    Router.go '/chat/' + eventId
+

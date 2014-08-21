@@ -1,7 +1,7 @@
 <template name="eventsList">
   <div class="eventsContainer">
     {{#each eventsArray}}
-      <div class="eventDay">{{formatEventsListDay this.key}}</div>
+      <div class="eventDay" id="{{formatEventsListDayId this.key}}">{{formatEventsListDay this.key}}</div>
       {{#each this.value}}
         {{> eventItem }}
       {{/each}}

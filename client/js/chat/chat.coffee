@@ -13,8 +13,8 @@ getAndClearInput = (input_field) ->
   input_field.val('')
   message
 
-createMessage = (userId, name, content) ->
-  { userId: userId, name: name, message: content, time: Date.now() }
+createMessage = (chatId, userId, name, content) ->
+  { chatId: chatId, userId: userId, name: name, message: content, time: Date.now() }
 
 Template.chat.helpers
   messages: ->
@@ -25,10 +25,17 @@ Template.chat.helpers
 Template.chat.events
   'submit form': (e, t) ->
     e.preventDefault()
+
     content = getAndClearInput($(t.find('#message')))
     if content.length > 0
-      message = createMessage(Meteor.userId(), getUserName(), content)
+
+      chatId = Router.current().params._id
+      userId = Meteor.userId()
+      name = getUserName()
+
+      message = createMessage(chatId, userId, name, content)
       Messages.insert(message)
+
     false
 
 Template.message.helpers

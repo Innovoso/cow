@@ -17,5 +17,5 @@ Template.login.events
       if error
         throwAccountsError("Please check your username or password.")
       else
-        Router.go('eventsCalendar')
+        Router.go('events')
     false
