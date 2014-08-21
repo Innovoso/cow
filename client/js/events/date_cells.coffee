@@ -24,23 +24,13 @@ Template.dateCells.events
   'click .dateCell': (e) ->
     removeFirstOfMonthSelectDate()
     addSelectDate(e)
-    console.log e.currentTarget
+    id = 'h' + e.currentTarget.id
+    # $('#' + id).css('background-color','red')
+    # console.log id
 
-    # EVENTS FOR ONLY DATE CELL
-    # startDate = new Date(e.currentTarget.id)
-    # endDate = new Date(e.currentTarget.id)
-
-    # console.log startDate
-    # console.log endDate
-
-    # events = renderEventsList startDate, endDate
-    # console.log events
-
-    # $('.eventsContainer').fadeOut(1).remove()
-
-    # instance = UI.renderWithData(Template.eventsList, {feed: events})
-    # console.log instance
-    # UI.insert(instance, $('.eventsList')[0])
+    $('.eventsList').animate({
+      scrollTop: $('#' + id).offset().top
+    },1000)
 
 Template.eventsNav.events
   'click .plus-button': (e) ->

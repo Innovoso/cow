@@ -17,11 +17,9 @@ UI.registerHelper "formatEventsListEndTime", (datetime) =>
 
 UI.registerHelper "formatEventsListDay", (datetime) =>
   moment(datetime).format('DD MMM YY')
-# moment(datetime).format('e') + " " +
 
-UI.registerHelper "formatEventsListDayId", (datetime) ->
-  console.log this.key
-  # moment(this.key).format('MDYY'))
+UI.registerHelper "formatEventsListDayId", (datetime) =>
+  'h' + moment(datetime).format('MDYY')
 
 
 
