@@ -23,3 +23,8 @@ Template.chat_box.events
     input = messageField()
     input.caret('#')
     input.trigger('keyup')
+
+  'click #map-button': (e, t) ->
+    e.preventDefault()
+    alert 'show picker list'
+    false
