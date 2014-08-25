@@ -1,25 +1,22 @@
-TransitionEndEvents = "transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd"
+TransitionTime = 200
 
 @showSuggestMenu = ->
   $('#suggest_menu').show()
   $('.gray-out')
     .transit({ opacity: 0, duration: 0 })
-    .transit({ opacity: 1, duration: 200 })
+    .transit({ opacity: 1, duration: TransitionTime })
   $('.menu')
     .transit({ y: '100%', duration: 0 })
-    .transit({ y: '0', duration: 200 })
+    .transit({ y: '0', duration: TransitionTime })
 
 @hideSuggestMenu = ->
   $('.menu')
-    .transit({ y: '100%', duration: 200 })
+    .transit({ y: '100%', duration: TransitionTime })
   $('.gray-out')
-    .transit({ opacity: 0, duration: 200 })
+    .transit({ opacity: 0, duration: TransitionTime })
 
-  # bind to css transition end event
-  suggestMenu = $('#suggest_menu')
-  suggestMenu.bind TransitionEndEvents, ->
-    suggestMenu.hide()
-    suggestMenu.unbind()
+  $('#suggest_menu').delay(TransitionTime).hide(0)
+
 
 Template.suggest_menu.events
   'click .gray-out': (e, t) ->
