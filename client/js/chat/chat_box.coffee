@@ -26,5 +26,5 @@ Template.chat_box.events
 
   'click #map-button': (e, t) ->
     e.preventDefault()
-    $('#suggest_menu').show()
+    showSuggestMenu()
     false
