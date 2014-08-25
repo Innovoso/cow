@@ -35,6 +35,8 @@ Router.map ->
 
   @route 'profile'
 
+  @route 'when'
+
 autoLogin = (pause) ->
   Router.go 'events' if Meteor.userId()
 

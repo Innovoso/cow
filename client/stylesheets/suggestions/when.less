@@ -1,0 +1,87 @@
+@import url('../imports/colors.import.less');
+
+.when {
+
+  form {
+    margin-top: 40px;
+  }
+
+  input {
+    border: 0;
+    margin: 0;
+    box-shadow: none;
+    height: 50px;
+    border-top: 1px solid @gray;
+    border-bottom: 1px solid @gray;
+  }
+
+  button {
+    width: 100%;
+    height: 50px;
+    color: @gray;
+    background: white;
+    border-bottom: 1px solid @gray;
+  }
+
+  .date-display {
+    background: white;
+    border-bottom: 1px solid @gray;
+    position: relative;
+  }
+
+  .weekday {
+  }
+
+  .date {
+    color: @gray;
+    font-size: 0.7em;
+    margin-top: -8px;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .event {
+    position: absolute;
+    background: @red;
+    border: 1px solid @darkRed;
+    padding: 0 5px;
+    top: 60px;
+    left: 40px;
+    right: 39px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: white;
+  }
+
+  .timeline {
+
+    width: 50px;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    height: 100px;
+
+    .line {
+      border-left: 1px solid @gray;
+      position: absolute;
+      left: 50%;
+      height: 80px;
+    }
+
+    .time {
+      color: @gray;
+      font-size: 0.6em;
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+         -moz-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+           -o-transform: translateX(-50%);
+              transform: translateX(-50%);
+    }
+  }
+}
