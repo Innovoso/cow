@@ -1,10 +1,9 @@
 <template name="eventsList">
-  <div class="eventsContainer">
-    {{#each eventsArray}}
-      <div class="eventDay" id="{{formatEventsListDayId this.key}}">{{formatEventsListDay this.key}}</div>
-      {{#each this.value}}
-        {{> eventItem }}
-      {{/each}}
+  {{#each eventsArray}}
+    <div class="eventDay" id="{{formatEventsListDayId this.key}}">{{formatEventsListDay this.key}}</div>
+    {{#each this.value}}
+      {{> eventItem }}
     {{/each}}
-  </div>
+  {{/each}}
+  <div class="event-filler"></div>
 </template>

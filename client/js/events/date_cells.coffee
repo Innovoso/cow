@@ -24,13 +24,9 @@ Template.dateCells.events
   'click .dateCell': (e) ->
     removeFirstOfMonthSelectDate()
     addSelectDate(e)
-    id = 'h' + e.currentTarget.id
-    # $('#' + id).css('background-color','red')
-    # console.log id
+    scrollToSelectedDate(e)
+    false
 
-    $('.eventsList').animate({
-      scrollTop: $('#' + id).offset().top
-    },1000)
 
 Template.eventsNav.events
   'click .plus-button': (e) ->
@@ -68,4 +64,17 @@ addSelectDate = (e) ->
   $('.dateCell').removeClass('selectedDate')
   $(e.currentTarget).addClass('selectedDate')
   false
+
+scrollToSelectedDate = (e) ->
+  id = 'h' + e.currentTarget.id
+  element = $('#' + id)
+  e.preventDefault()
+
+  console.log element.find()
+
+  if element != 'undefined' && element.position().top != 0
+    $('.eventsList').animate(
+      {scrollTop  : element.position().top + $('.eventsList').scrollTop() }, 500
+    )
+
 
