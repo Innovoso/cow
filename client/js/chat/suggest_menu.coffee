@@ -27,3 +27,9 @@ Template.suggest_menu.events
     e.preventDefault()
     hideSuggestMenu()
     false
+
+  'click .vote-button': (e, t) ->
+    e.preventDefault()
+    id = Router.current().params._id
+    Router.go('/vote_new/' + id)
+    false

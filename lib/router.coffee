@@ -37,6 +37,9 @@ Router.map ->
 
   @route 'when'
 
+  @route 'vote_new',
+    path: '/vote_new/:_id'
+
 autoLogin = (pause) ->
   Router.go 'events' if Meteor.userId()
 
