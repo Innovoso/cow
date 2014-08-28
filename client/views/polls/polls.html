@@ -7,24 +7,7 @@
     </nav>
     <div class="polls nav-padded">
       {{#each allPolls}}
-        <div class="poll" data-id="{{_id}}">
-          <div class="title">{{title}}</div>
-          {{#each choices}}
-            <div class="choice row">
-              <div class="small-2 columns">
-                <div class="count">
-                  {{vote_count votes}}
-                </div>
-              </div>
-              <div class="small-6 columns desc">
-                {{title}}
-              </div>
-              <div class="small-4 columns">
-                <button class="tiny vote-button">Vote</button>
-              </div>
-            </div>
-          {{/each}}
-        </div>
+        {{> poll}}
       {{/each}}
     </div>
   </div>

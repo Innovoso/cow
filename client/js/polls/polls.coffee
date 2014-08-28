@@ -9,14 +9,3 @@ Template.polls.events
     e.preventDefault()
     Router.go '/chat/' + Router.current().params._id
     false
-
-  'click .vote-button': (e, t) ->
-    e.preventDefault()
-    target = $(e.currentTarget)
-    parent = target.parents('.poll')
-
-    index = parent.find('.vote-button').index(e.currentTarget)
-    pollId = parent.data('id')
-
-    Meteor.call 'upVote', pollId, index, Meteor.userId()
-    false
