@@ -12,7 +12,7 @@ getPrevInput = (current) ->
   $(':input:eq(' + ($(':input').index(current) - 1) + ')')[0]
 
 addInput = ->
-  input = "<input type='text' name='choices[]' placeholder='Option'>"
+  input = "<input type='text' name='choices[][title]' placeholder='Option'>"
   tag = "<div class='input indent-1'>#{input}</div>"
   $('form').append(tag)
 
@@ -22,25 +22,25 @@ selectInput = (input) ->
 isRoot = (target) ->
   $(target).data('type') == 'root'
 
-Template.vote_new.helpers
+Template.poll_new.helpers
   chat_id: -> Router.current().params._id
 
-Template.vote_new.events
+Template.poll_new.events
   'click .back-button': (e, t) ->
     e.preventDefault()
-    id = Router.current().params._id
-    Router.go('/chat/' + id)
+    Router.go '/chat/' + Router.current().params._id
     false
 
   'click .send': (e, t) ->
     e.preventDefault()
     poll = $('form').serializeObject()
+    console.log poll
     Polls.insert poll, (error) ->
       if error
         console.log "Poll insert error: "
         console.log error
       else
-        Router.go '/chat/' + Router.current().params._id
+        Router.go '/polls/' + Router.current().params._id
 
     false
 

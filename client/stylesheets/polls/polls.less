@@ -1,0 +1,40 @@
+@import url('../imports/colors.import.less');
+
+.polls {
+
+  .poll {
+
+    padding: 15px;
+    background: @offWhite;
+    margin: 15px;
+
+    &:last-of-type {
+      margin-bottom: 40px;
+    }
+
+    .title {
+      color: black;
+      border-bottom: 1px solid @gray;
+      margin-bottom: 10px;
+    }
+
+    .choice {
+      padding: 7px 0;
+      border: 1px dashed @gray;
+      margin: 5px 0;
+
+      .count {
+        background: @green;
+        border-radius: 100px;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        color: white;
+      }
+
+      button {
+        margin: 0;
+      }
+    }
+  }
+}

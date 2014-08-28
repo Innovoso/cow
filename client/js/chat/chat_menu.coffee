@@ -1,7 +1,7 @@
 TransitionTime = 200
 
 @showSuggestMenu = ->
-  $('#suggest_menu').show()
+  $('#chat_menu').show()
   $('.gray-out')
     .transit({ opacity: 0, duration: 0 })
     .transit({ opacity: 1, duration: TransitionTime })
@@ -15,10 +15,10 @@ TransitionTime = 200
   $('.gray-out')
     .transit({ opacity: 0, duration: TransitionTime })
 
-  $('#suggest_menu').delay(TransitionTime).hide(0)
+  $('#chat_menu').delay(TransitionTime).hide(0)
 
 
-Template.suggest_menu.events
+Template.chat_menu.events
   'click .gray-out': (e, t) ->
     e.preventDefault()
     false
@@ -31,5 +31,5 @@ Template.suggest_menu.events
   'click .vote-button': (e, t) ->
     e.preventDefault()
     id = Router.current().params._id
-    Router.go('/vote_new/' + id)
+    Router.go('/poll_new/' + id)
     false

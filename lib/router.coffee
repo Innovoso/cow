@@ -37,8 +37,13 @@ Router.map ->
 
   @route 'when'
 
-  @route 'vote_new',
-    path: '/vote_new/:_id'
+  @route 'poll_new',
+    path: '/poll_new/:_id'
+
+  @route 'polls',
+    path: '/polls/:_id'
+    waitOn: ->
+      Meteor.subscribe 'polls', this.params._id
 
 autoLogin = (pause) ->
   Router.go 'events' if Meteor.userId()
