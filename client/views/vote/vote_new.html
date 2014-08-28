@@ -5,13 +5,14 @@
         <a href="#" class="back-button"></a>
       </div>
       <div class="small-6 columns">#Vote</div>
-      <div class="small-3 columns"></div>
+      <div class="small-3 columns send">Send</div>
     </div>
   </nav>
   <main class="vote_new nav-padded">
     <form action="#">
+      <input type="hidden" name="chat_id" value="{{chat_id}}">
       <div class="input">
-        <input data-type="root" type="text" placeholder="Which restaurant?" autofocus>
+        <input data-type="root" type="text" placeholder="Which restaurant?" name="title" autofocus>
       </div>
     </form>
   </main>
