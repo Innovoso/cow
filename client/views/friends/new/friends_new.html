@@ -1,0 +1,25 @@
+<Template name="friends_new">
+  {{> friends_new_nav }}
+  <div id="friends_new" class="nav-padded">
+
+    <!-- friend search bar -->
+    <form action="#">
+      <div class="row">
+        <div class="small-10 columns">
+          <input type="email" id="email" placeholder="Search by email">
+        </div>
+        <div class="small-2 columns search-button">
+        </div>
+      </div>
+    </form>
+
+    <!-- search result list -->
+    <div class="friends-search-list">
+      {{#each friends }}
+        {{#unless isMe this }}
+          {{> user }}
+        {{/unless}}
+      {{/each }}
+    </div>
+  </div>
+</Template>

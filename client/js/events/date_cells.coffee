@@ -27,7 +27,6 @@ Template.dateCells.events
     scrollToSelectedDate(e)
     false
 
-
 Template.eventsNav.events
   'click .plus-button': (e) ->
     Router.go 'createEvent'
@@ -69,6 +68,7 @@ scrollToSelectedDate = (e) ->
   id = 'h' + e.currentTarget.id
   element = $('#' + id)
   e.preventDefault()
+  console.log e.currentTarget
 
   if element.length != 0 && element.position().top != 0
     $('.eventsList').animate(

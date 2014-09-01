@@ -24,6 +24,7 @@ Template.chat_box.events
     input.caret('#')
     input.trigger('keyup')
 
-  # 'click #right-arrow-button': (e, t) ->
-  #   input = messageField()
-  #   input.caret('\t')
+  'click #map-button': (e, t) ->
+    e.preventDefault()
+    showSuggestMenu()
+    false

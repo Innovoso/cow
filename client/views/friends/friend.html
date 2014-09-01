@@ -1,5 +1,5 @@
 <template name="friend">
-  <div class="friend row">
+  <div class="friend row" data-user-id="{{_id}}">
     <div class="small-2 columns avatar">
       <img src="/img/github.png" alt="">
     </div>
@@ -10,6 +10,8 @@
             {{ address }}
           {{/each }}
         </div>
+      </div>
+      <div class="row">
         <div class="small-12 columns details status">
           Available
         </div>

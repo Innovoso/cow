@@ -1,5 +1,5 @@
-@import url("fonts.import.less");
-@import url("colors.import.less");
+@import url("imports/fonts.import.less");
+@import url("imports/colors.import.less");
 @import url("/packages/font-awesome-4-less/font-awesome.import.less");
 
 html {
@@ -39,6 +39,10 @@ nav {
   }
 }
 
+.hidden {
+  display: none;
+}
+
 .nav-padded {
   padding-top: 45px;
 }
@@ -74,6 +78,12 @@ nav {
   font-size: 1.2em;
   margin: 0px;
   background: none !important;
+}
+
+.search-button {
+  #fa-icon(search, @gray);
+  background: white;
+  text-align: center;
 }
 
 // ===========

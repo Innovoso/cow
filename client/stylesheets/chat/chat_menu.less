@@ -1,0 +1,50 @@
+@import url('../imports/colors.import.less');
+
+#chat_menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+
+  .gray-out {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: fade(black, 50%);
+  }
+
+  .menu {
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+  }
+
+  button, .button {
+    background: fade(white, 85%);
+    display: block;
+    width: 90%;
+    margin: 1px auto;
+    color: @blue;
+    font-size: 1.2em;
+    padding: 15px;
+  }
+
+  .button:first-of-type {
+    border-radius: 3px 3px 0 0;
+  }
+  .button:last-of-type {
+    border-radius: 0 0 3px 3px;
+    border-bottom: 0;
+  }
+
+  button:last-of-type {
+    border: 0;
+    margin-top: 10px;
+    border-radius: 3px;
+  }
+}

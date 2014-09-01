@@ -1,0 +1,52 @@
+<template name="when">
+  <nav></nav>
+  <main class="when nav-padded">
+    <form action="#">
+      <input id="chrono_input" type="text" placeholder="Lunch on Friday at 12:30" autofocus>
+      <div class="date-display {{#unless startDate}}hidden{{/unless}}">
+        <div class="row">
+          <div class="small-6 columns start-date">
+            <div class="row">
+              <div class="small-12 columns weekday">
+                {{weekday startDate}}
+              </div>
+              <div class="small-12 columns date">
+                {{date startDate}}
+              </div>
+            </div>
+          </div>
+          <div class="small-6 columns right end-date {{#if withinDay}}hidden{{/if}}">
+            <div class="row">
+              <div class="small-12 columns weekday">
+                {{weekday endDate}}
+              </div>
+              <div class="small-12 columns date">
+                {{date endDate}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          {{#if remainder}}
+            <div class="event">
+              {{remainder}}
+            </div>
+          {{/if}}
+          <div class="small-6 columns">
+            <div class="timeline">
+              <div class="line"></div>
+              <div class="time">{{time startDate}}</div>
+            </div>
+          </div>
+          <div class="small-6 columns right">
+            <div class="timeline">
+              <div class="line"></div>
+              <div class="time">{{time endDate}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button>Show Details</button>
+    </form>
+  </main>
+</template>

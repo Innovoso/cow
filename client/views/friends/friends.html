@@ -1,0 +1,13 @@
+<template name="friends">
+
+  {{> friends_nav }}
+
+  <div class="friends nav-padded">
+    {{#each friends }}
+      {{#unless isMe this }}
+        {{> friend }}
+      {{/unless }}
+    {{/each }}
+  </div>
+
+</template>

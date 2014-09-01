@@ -1,0 +1,14 @@
+<template name="polls">
+  <div class="polls">
+    <nav>
+      <div class="small-3 columns back-button"></div>
+      <div class="small-6 columns">Polls</div>
+      <div class="small-3 columns"></div>
+    </nav>
+    <div class="polls nav-padded">
+      {{#each allPolls}}
+        {{> poll}}
+      {{/each}}
+    </div>
+  </div>
+</template>

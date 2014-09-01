@@ -1,7 +1,7 @@
 <template name="events">
   {{> side_menu }}
 
-  <div id="events_calendar">
+  <div id="events">
     {{> eventsNav }}
     <div class="calendar">
       {{> dayBar}}
@@ -9,9 +9,9 @@
         {{> dateCells}}
       </div>
     </div>
-    <div class="eventsList">
-      {{> eventsList}}
-    </div>
+
+    {{> events_list}}
+
   </div>
 </template>
 

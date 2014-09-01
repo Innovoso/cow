@@ -16,7 +16,15 @@ Router.map ->
     waitOn: ->
       Meteor.subscribe 'messages', this.params._id
 
-  @route 'friends'
+  @route 'friends',
+    waitOn: ->
+      user = Meteor.user()
+      if user
+        friends = user.profile.friends if user.profile
+        Meteor.subscribe 'friends', friends
+
+  @route 'friends_new',
+    path: '/friends/new'
 
   @route 'reset_password'
 
@@ -26,6 +34,16 @@ Router.map ->
   @route 'createEvent'
 
   @route 'profile'
+
+  @route 'when'
+
+  @route 'poll_new',
+    path: '/poll_new/:_id'
+
+  @route 'polls',
+    path: '/polls/:_id'
+    waitOn: ->
+      Meteor.subscribe 'polls', this.params._id
 
 autoLogin = (pause) ->
   Router.go 'events' if Meteor.userId()
