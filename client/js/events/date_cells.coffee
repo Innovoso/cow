@@ -68,11 +68,11 @@ scrollToSelectedDate = (e) ->
   id = 'h' + e.currentTarget.id
   element = $('#' + id)
   e.preventDefault()
-  console.log e.currentTarget
+  console.log element
 
   if element.length != 0 && element.position().top != 0
-    $('.eventsList').animate(
-      {scrollTop  : element.position().top + $('.eventsList').scrollTop() }, 500
+    $('.events_list').animate(
+      {scrollTop  : element.position().top + $('.events_list').scrollTop() }, 500
     )
 
 
